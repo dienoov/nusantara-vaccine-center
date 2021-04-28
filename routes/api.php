@@ -5,6 +5,7 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VacCenterController;
 use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\VacStatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -58,5 +59,12 @@ Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
         Route::post('', [ScheduleController::class, 'create']);
         Route::post('{id}', [ScheduleController::class, 'update']);
         Route::delete('{id}', [ScheduleController::class, 'delete']);
+    });
+
+    Route::prefix('status')->group(function () {
+        Route::get('', [VacStatusController::class, 'all']);
+        Route::post('', [VacStatusController::class, 'create']);
+        Route::post('{id}', [VacStatusController::class, 'update']);
+        Route::delete('{id}', [VacStatusController::class, 'delete']);
     });
 });
