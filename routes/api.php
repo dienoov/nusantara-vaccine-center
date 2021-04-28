@@ -24,3 +24,7 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware(['auth:admin-api', 'scope:admin'])->get('admin',function (Request $request){
+    return $request->user();
+});
