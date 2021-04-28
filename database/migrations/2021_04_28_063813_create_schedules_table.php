@@ -17,6 +17,7 @@ class CreateSchedulesTable extends Migration
             $table->id();
             $table->date('date');
             $table->time('time');
+            $table->foreignId('vac_center_id')->constrained('vac_centers');
             $table->timestamps();
         });
     }

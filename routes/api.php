@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VacCenterController;
 use App\Http\Controllers\VaccineController;
@@ -31,7 +32,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
     Route::prefix('vac-center')->group(function () {
         Route::get('', [VacCenterController::class, 'all']);
-        Route::get('{id}/stock', [VacCenterController::class, 'stock']);
+        Route::get('{id}/stocks', [VacCenterController::class, 'stocks']);
+        Route::get('{id}/schedules', [VacCenterController::class, 'schedules']);
         Route::post('', [VacCenterController::class, 'create']);
         Route::post('{id}', [VacCenterController::class, 'update']);
         Route::delete('{id}', [VacCenterController::class, 'delete']);
@@ -49,5 +51,12 @@ Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
         Route::post('', [StockController::class, 'create']);
         Route::post('{id}', [StockController::class, 'update']);
         Route::delete('{id}', [StockController::class, 'delete']);
+    });
+
+    Route::prefix('schedule')->group(function () {
+        Route::get('', [ScheduleController::class, 'all']);
+        Route::post('', [ScheduleController::class, 'create']);
+        Route::post('{id}', [ScheduleController::class, 'update']);
+        Route::delete('{id}', [ScheduleController::class, 'delete']);
     });
 });

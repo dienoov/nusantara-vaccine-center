@@ -19,4 +19,9 @@ class VacCenter extends Model
     {
         return $this->hasMany(Stock::class);
     }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }
