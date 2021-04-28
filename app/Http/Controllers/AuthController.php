@@ -47,7 +47,29 @@ class AuthController extends Controller
             ], 401);
 
         $user = Auth::user();
-        $token = $user->createToken('nvc')->accessToken;
+        $token = $user->createToken('nvc', ['user'])->accessToken;
+
+        return response([
+            'user' => $user,
+            'token' => $token,
+            'message' => 'Success',
+        ]);
+    }
+
+    public function admin(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required|min:8',
+        ]);
+
+        if (!Auth::guard('admin-web')->attempt($request->only(['username', 'password'])))
+            return response([
+                'message' => 'Invalid username or password',
+            ]);
+
+        $user = Auth::guard('admin-web')->user();
+        $token = $user->createToken('nvc', ['admin'])->accessToken;
 
         return response([
             'user' => $user,
