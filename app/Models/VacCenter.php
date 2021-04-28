@@ -14,4 +14,9 @@ class VacCenter extends Model
         'address',
         'contact',
     ];
+
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }

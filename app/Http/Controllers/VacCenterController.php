@@ -15,6 +15,14 @@ class VacCenterController extends Controller
         ]);
     }
 
+    public function stock(int $id)
+    {
+        return response([
+            'vac_center' => VacCenter::with('stocks.vaccine')->where('id', $id)->get(),
+            'message' => 'Success',
+        ]);
+    }
+
     public function create(Request $request)
     {
         $request->validate([

@@ -17,6 +17,7 @@ class CreateStocksTable extends Migration
             $table->id();
             $table->foreignId('vac_center_id')->constrained('vac_centers');
             $table->foreignId('vaccine_id')->constrained('vaccines');
+            $table->integer('stock')->default(0);
             $table->timestamps();
         });
     }
