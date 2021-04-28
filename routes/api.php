@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VacCenterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:admin-api', 'scope:admin'])->get('admin',function (Request $request){
-    return $request->user();
+Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
+    Route::prefix('vac-center')->group(function () {
+        Route::get('', [VacCenterController::class, 'all']);
+        Route::post('', [VacCenterController::class, 'create']);
+        Route::post('{id}', [VacCenterController::class, 'update']);
+        Route::delete('{id}', [VacCenterController::class, 'delete']);
+    });
 });
