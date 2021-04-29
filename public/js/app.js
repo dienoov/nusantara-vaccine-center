@@ -2173,6 +2173,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home"
 });
@@ -19929,209 +19935,303 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "nav",
+      { staticClass: "navbar fixed-top bg-light border-bottom-black" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("ul", { staticClass: "navbar-nav" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4),
+          _vm._v(" "),
+          _vm._m(5),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link-btn", attrs: { to: "/" } },
+                [_vm._v("Login")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link-btn", attrs: { to: "/" } },
+                [_vm._v("Register")]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(6)
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(7),
+    _vm._v(" "),
+    _vm._m(8),
+    _vm._v(" "),
+    _vm._m(9),
+    _vm._v(" "),
+    _vm._m(10),
+    _vm._v(" "),
+    _vm._m(11),
+    _vm._v(" "),
+    _vm._m(12),
+    _vm._v(" "),
+    _vm._m(13),
+    _vm._v(" "),
+    _vm._m(14),
+    _vm._v(" "),
+    _c("div", { staticClass: "sidebar-backdrop" }),
+    _vm._v(" "),
+    _vm._m(15)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "nav",
-        { staticClass: "navbar fixed-top bg-light border-bottom-black" },
-        [
-          _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
-            _c("img", { attrs: { src: "/images/logo-black.png", alt: "logo" } })
-          ]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "navbar-nav" }, [
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                { staticClass: "nav-link", attrs: { href: "index.html" } },
-                [_vm._v("Home")]
-              )
-            ]),
+    return _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+      _c("img", { attrs: { src: "/images/logo-black.png", alt: "logo" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "index.html" } }, [
+        _vm._v("Home")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#about" } }, [
+        _vm._v("About")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#news" } }, [
+        _vm._v("News")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#date" } }, [
+        _vm._v("Date")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#vaccine" } }, [
+        _vm._v("Get Vaccine")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "navbar-toggler" }, [
+      _c("div", { staticClass: "hamburger" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "slider border-bottom-black", attrs: { id: "slider" } },
+      [
+        _c("div", { staticClass: "slides" }, [
+          _c("div", { staticClass: "slide fade" }, [
+            _c("img", { attrs: { src: "/images/img1.jpg", alt: "img1" } }),
             _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c("a", { staticClass: "nav-link", attrs: { href: "#about" } }, [
-                _vm._v("About")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c("a", { staticClass: "nav-link", attrs: { href: "#news" } }, [
-                _vm._v("News")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c("a", { staticClass: "nav-link", attrs: { href: "#date" } }, [
-                _vm._v("Date")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                { staticClass: "nav-link", attrs: { href: "#vaccine" } },
-                [_vm._v("Get Vaccine")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "navbar-toggler" }, [
-            _c("div", { staticClass: "hamburger" })
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "slider border-bottom-black", attrs: { id: "slider" } },
-        [
-          _c("div", { staticClass: "slides" }, [
-            _c("div", { staticClass: "slide fade" }, [
-              _c("img", { attrs: { src: "/images/img1.jpg", alt: "img1" } }),
-              _vm._v(" "),
-              _c("div", { staticClass: "caption" }, [
-                _c("h2", [
-                  _vm._v(
-                    "Boris Johnson faces battle to get vaccine passports through parliament"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted" }, [
-                  _vm._v(
-                    "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, molestias, nesciunt! Aut\n                        esse ex\n                        laboriosam quisquam rerum. Amet, aperiam consequuntur corporis dolores eum minima pariatur\n                        placeat\n                        qui quod quos, repellat.\n                    "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "detail text-right" }, [
-                _c("h4", { staticClass: "my-0" }, [_vm._v("April 5, 2021")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                  _vm._v("4:30pm")
-                ]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "my-0" }, [_vm._v("Jakarta Selatan")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                  _vm._v("DKI Jakarta, Indonesia")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "slide fade" }, [
-              _c("img", { attrs: { src: "/images/img2.jpg", alt: "img2" } }),
-              _vm._v(" "),
-              _c("div", { staticClass: "caption" }, [
-                _c("h2", [
-                  _vm._v("Modernas Covid vaccine rolled out in Nusantara")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted" }, [
-                  _vm._v(
-                    "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,\n                        eos,\n                        eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis\n                        placeat\n                        quisquam quo quod sapiente totam.\n                    "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "detail text-right" }, [
-                _c("h4", { staticClass: "my-0" }, [_vm._v("April 3, 2021")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                  _vm._v("2:21pm")
-                ]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "my-0" }, [_vm._v("Semarang")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                  _vm._v("Jawa Tengah, Indonesia")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "slide fade" }, [
-              _c("img", { attrs: { src: "/images/img3.jpg", alt: "img3" } }),
-              _vm._v(" "),
-              _c("div", { staticClass: "caption" }, [
-                _c("h2", [
-                  _vm._v(
-                    "A coronavirus vaccine developed by Chinas Sinovac has been found"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted" }, [
-                  _vm._v(
-                    "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,\n                        eos,\n                        eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis\n                        placeat\n                        quisquam quo quod sapiente totam.\n                    "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "detail text-right" }, [
-                _c("h4", { staticClass: "my-0" }, [_vm._v("April 1, 2021")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                  _vm._v("6:03am")
-                ]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "my-0" }, [_vm._v("Malang")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                  _vm._v("Jawa Timur, Indonesia")
-                ])
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "py-80 border-bottom-black", attrs: { id: "about" } },
-        [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-6" }, [
-              _c("h2", { staticClass: "display-4 my-0" }, [_vm._v("About Us")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted" }, [
+            _c("div", { staticClass: "caption" }, [
+              _c("h2", [
                 _vm._v(
-                  "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio quam\n                    qui\n                    sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt voluptatem!\n                    Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam\n                    mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?\n                "
+                  "Boris Johnson faces battle to get vaccine passports through parliament"
                 )
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse est\n                    facere\n                    facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi\n                    exercitationem\n                    explicabo facere non?\n                "
+                  "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, molestias, nesciunt! Aut\n                        esse ex\n                        laboriosam quisquam rerum. Amet, aperiam consequuntur corporis dolores eum minima pariatur\n                        placeat\n                        qui quod quos, repellat.\n                    "
                 )
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-light mt-3" }, [
-                _vm._v("Learn More...")
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-lg-6" }, [
-              _c("img", {
-                staticClass: "img-about mb-3",
-                attrs: { src: "/images/img13.jpg", alt: "img13" }
-              }),
+            _c("div", { staticClass: "detail text-right" }, [
+              _c("h4", { staticClass: "my-0" }, [_vm._v("April 5, 2021")]),
               _vm._v(" "),
-              _c("img", {
-                staticClass: "img-about",
-                attrs: { src: "/images/img14.jpg", alt: "img14" }
-              })
+              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
+                _vm._v("4:30pm")
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "my-0" }, [_vm._v("Jakarta Selatan")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
+                _vm._v("DKI Jakarta, Indonesia")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "slide fade" }, [
+            _c("img", { attrs: { src: "/images/img2.jpg", alt: "img2" } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "caption" }, [
+              _c("h2", [
+                _vm._v("Modernas Covid vaccine rolled out in Nusantara")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted" }, [
+                _vm._v(
+                  "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,\n                        eos,\n                        eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis\n                        placeat\n                        quisquam quo quod sapiente totam.\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "detail text-right" }, [
+              _c("h4", { staticClass: "my-0" }, [_vm._v("April 3, 2021")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
+                _vm._v("2:21pm")
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "my-0" }, [_vm._v("Semarang")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
+                _vm._v("Jawa Tengah, Indonesia")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "slide fade" }, [
+            _c("img", { attrs: { src: "/images/img3.jpg", alt: "img3" } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "caption" }, [
+              _c("h2", [
+                _vm._v(
+                  "A coronavirus vaccine developed by Chinas Sinovac has been found"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted" }, [
+                _vm._v(
+                  "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,\n                        eos,\n                        eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis\n                        placeat\n                        quisquam quo quod sapiente totam.\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "detail text-right" }, [
+              _c("h4", { staticClass: "my-0" }, [_vm._v("April 1, 2021")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
+                _vm._v("6:03am")
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "my-0" }, [_vm._v("Malang")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
+                _vm._v("Jawa Timur, Indonesia")
+              ])
             ])
           ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom-black", attrs: { id: "news" } }, [
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "py-80 border-bottom-black", attrs: { id: "about" } },
+      [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-3 py-80 px-20 bg-black" }, [
+          _c("div", { staticClass: "col-lg-6" }, [
+            _c("h2", { staticClass: "display-4 my-0" }, [_vm._v("About Us")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted" }, [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio quam\n                    qui\n                    sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt voluptatem!\n                    Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam\n                    mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted" }, [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse est\n                    facere\n                    facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi\n                    exercitationem\n                    explicabo facere non?\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-light mt-3" }, [
+              _vm._v("Learn More...")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-6" }, [
+            _c("img", {
+              staticClass: "img-about mb-3",
+              attrs: { src: "/images/img13.jpg", alt: "img13" }
+            }),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "img-about",
+              attrs: { src: "/images/img14.jpg", alt: "img14" }
+            })
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "border-bottom-black", attrs: { id: "news" } },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-3 py-80 px-20 bg-blue" }, [
             _c("h2", { staticClass: "display-4 text-center" }, [
               _vm._v("Latest News")
             ])
@@ -20258,258 +20358,259 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "modal", attrs: { id: "modal-news" } }, [
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "head" }, [
-            _c("h3", { staticClass: "title" }, [
-              _vm._v("How to Protect Yourself From Covid-19")
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              { staticClass: "close", attrs: { "data-dismiss": "modal" } },
-              [_vm._v("×")]
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal", attrs: { id: "modal-news" } }, [
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "head" }, [
+          _c("h3", { staticClass: "title" }, [
+            _vm._v("How to Protect Yourself From Covid-19")
+          ]),
+          _vm._v(" "),
+          _c(
+            "span",
+            { staticClass: "close", attrs: { "data-dismiss": "modal" } },
+            [_vm._v("×")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "body" }, [
+          _c("img", {
+            staticClass: "mx-auto mb-3",
+            attrs: {
+              src:
+                "/images/new-normal-1---bie4b73458c9a84d4995ebef27544a3a0a.png",
+              alt: "new-normal"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("April 20, 2021")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, iure sed! Consequatur\n                    culpa ex\n                    itaque\n                    necessitatibus! Ad animi asperiores aut blanditiis iure labore nihil nobis, numquam optio sint\n                    veniam\n                    veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolore\n                    doloremque est\n                    fugit,\n                    iusto magnam quas reprehenderit similique sit voluptate. Aperiam consequatur deserunt, ducimus\n                    earum\n                    facilis\n                    maxime quo ratione sunt.\n                "
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "body" }, [
-            _c("img", {
-              staticClass: "mx-auto mb-3",
-              attrs: {
-                src:
-                  "/images/new-normal-1---bie4b73458c9a84d4995ebef27544a3a0a.png",
-                alt: "new-normal"
-              }
-            }),
-            _vm._v(" "),
-            _c("p", [_vm._v("April 20, 2021")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, iure sed! Consequatur\n                    culpa ex\n                    itaque\n                    necessitatibus! Ad animi asperiores aut blanditiis iure labore nihil nobis, numquam optio sint\n                    veniam\n                    veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolore\n                    doloremque est\n                    fugit,\n                    iusto magnam quas reprehenderit similique sit voluptate. Aperiam consequatur deserunt, ducimus\n                    earum\n                    facilis\n                    maxime quo ratione sunt.\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolores eligendi eum labore\n                    molestias\n                    quia.\n                    Accusantium alias cum cumque dignissimos doloribus fuga laboriosam, nam nulla omnis, quo rerum\n                    sapiente\n                    voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi cumque deleniti\n                    dolor\n                    eos\n                    et eveniet laborum molestias nihil non obcaecati perferendis quam ratione reprehenderit sunt\n                    tempora\n                    veritatis vitae, voluptate.\n                "
-              )
-            ])
+          _c("p", [
+            _vm._v(
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolores eligendi eum labore\n                    molestias\n                    quia.\n                    Accusantium alias cum cumque dignissimos doloribus fuga laboriosam, nam nulla omnis, quo rerum\n                    sapiente\n                    voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi cumque deleniti\n                    dolor\n                    eos\n                    et eveniet laborum molestias nihil non obcaecati perferendis quam ratione reprehenderit sunt\n                    tempora\n                    veritatis vitae, voluptate.\n                "
+            )
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "py-80 border-bottom-black", attrs: { id: "date" } },
-        [
-          _c("h2", { staticClass: "display-4 text-center" }, [
-            _vm._v("Save the Date")
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "border-top-black mx-20" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "row px-20" }, [
-            _c("div", { staticClass: "col-lg-9" }, [
-              _c("h3", [_vm._v("Sinovac Vaccine")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted" }, [
-                _vm._v(
-                  "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, alias architecto delectus\n                    dolore\n                    dolorem earum eius fugit in minus modi perferendis perspiciatis quia quo reprehenderit rerum,\n                    sint sit\n                    ullam voluptatem?\n                "
-                )
-              ])
-            ]),
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "py-80 border-bottom-black", attrs: { id: "date" } },
+      [
+        _c("h2", { staticClass: "display-4 text-center" }, [
+          _vm._v("Save the Date")
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "border-top-black mx-20" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row px-20" }, [
+          _c("div", { staticClass: "col-lg-9" }, [
+            _c("h3", [_vm._v("Sinovac Vaccine")]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3" }, [
-              _c("p", { staticClass: "text-right" }, [_vm._v("April 12, 2021")])
+            _c("p", { staticClass: "text-muted" }, [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, alias architecto delectus\n                    dolore\n                    dolorem earum eius fugit in minus modi perferendis perspiciatis quia quo reprehenderit rerum,\n                    sint sit\n                    ullam voluptatem?\n                "
+              )
             ])
           ]),
           _vm._v(" "),
-          _c("hr", { staticClass: "border-top-black mx-20" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "row px-20" }, [
-            _c("div", { staticClass: "col-lg-9" }, [
-              _c("h3", [_vm._v("Moderna Vaccine")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted" }, [
-                _vm._v(
-                  "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur error, illum\n                    impedit\n                    ipsam maiores maxime, minus necessitatibus possimus quaerat quia quo quos repudiandae similique,\n                    vero.\n                    Error non rerum voluptas?\n                "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3" }, [
-              _c("p", { staticClass: "text-right" }, [_vm._v("April 16, 2021")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "border-top-black mx-20" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "row px-20" }, [
-            _c("div", { staticClass: "col-lg-9" }, [
-              _c("h3", [_vm._v("Sinovac Vaccine")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted" }, [
-                _vm._v(
-                  "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto blanditiis\n                    corporis dicta\n                    distinctio dolore illo illum itaque magnam molestias non nostrum placeat quasi quibusdam quis\n                    ratione\n                    recusandae saepe totam.\n                "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3" }, [
-              _c("p", { staticClass: "text-right" }, [_vm._v("April 17, 2021")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "border-top-black mx-20" })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "py-80 bg-blue text-center border-bottom-black",
-          attrs: { id: "vaccine" }
-        },
-        [
-          _c(
-            "h2",
-            {
-              staticClass: "display-1 text-uppercase my-0 text-white",
-              attrs: { id: "get-your-vaccine" }
-            },
-            [_vm._v("Get Your Vaccine")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "font-weight-bold text-uppercase" }, [
-            _vm._v("Click Here")
+          _c("div", { staticClass: "col-lg-3" }, [
+            _c("p", { staticClass: "text-right" }, [_vm._v("April 12, 2021")])
           ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("footer", { staticClass: "py-80" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-3 text-center text-lg-left" }, [
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "border-top-black mx-20" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row px-20" }, [
+          _c("div", { staticClass: "col-lg-9" }, [
+            _c("h3", [_vm._v("Moderna Vaccine")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted" }, [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur error, illum\n                    impedit\n                    ipsam maiores maxime, minus necessitatibus possimus quaerat quia quo quos repudiandae similique,\n                    vero.\n                    Error non rerum voluptas?\n                "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3" }, [
+            _c("p", { staticClass: "text-right" }, [_vm._v("April 16, 2021")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "border-top-black mx-20" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row px-20" }, [
+          _c("div", { staticClass: "col-lg-9" }, [
+            _c("h3", [_vm._v("Sinovac Vaccine")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted" }, [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto blanditiis\n                    corporis dicta\n                    distinctio dolore illo illum itaque magnam molestias non nostrum placeat quasi quibusdam quis\n                    ratione\n                    recusandae saepe totam.\n                "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3" }, [
+            _c("p", { staticClass: "text-right" }, [_vm._v("April 17, 2021")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "border-top-black mx-20" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "py-80 bg-blue text-center border-bottom-black",
+        attrs: { id: "vaccine" }
+      },
+      [
+        _c(
+          "h2",
+          {
+            staticClass: "display-1 text-uppercase my-0 text-white",
+            attrs: { id: "get-your-vaccine" }
+          },
+          [_vm._v("Get Your Vaccine")]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-weight-bold text-uppercase" }, [
+          _vm._v("Click Here")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "py-80" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-3 text-center text-lg-left" }, [
+          _c("img", {
+            staticClass: "footer-logo",
+            attrs: { src: "/images/logo-black.png", alt: "logo", height: "32" }
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-muted mt-3 mb-0" }, [
+            _vm._v("© 2021 SMK Nusantara")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-muted my-0" }, [
+            _vm._v("All Rights Reserved")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-6" }, [
+          _c("ul", { staticClass: "footer-nav" }, [
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                { staticClass: "nav-link", attrs: { href: "index.html" } },
+                [_vm._v("Home")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#about" } }, [
+                _vm._v("About")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#news" } }, [
+                _vm._v("News")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#date" } }, [
+                _vm._v("Date")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                { staticClass: "nav-link", attrs: { href: "#vaccine" } },
+                [_vm._v("Get Vaccine")]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-3 text-center text-lg-right" }, [
+          _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
             _c("img", {
               attrs: {
-                src: "/images/logo-black.png",
-                alt: "logo",
+                src: "/svg/044-instagram.svg",
+                alt: "instagram",
                 height: "32"
               }
-            }),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted mt-3 mb-0" }, [
-              _vm._v("© 2021 SMK Nusantara")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted my-0" }, [
-              _vm._v("All Rights Reserved")
-            ])
+            })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("ul", { staticClass: "footer-nav" }, [
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  { staticClass: "nav-link", attrs: { href: "index.html" } },
-                  [_vm._v("Home")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  { staticClass: "nav-link", attrs: { href: "#about" } },
-                  [_vm._v("About")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#news" } }, [
-                  _vm._v("News")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#date" } }, [
-                  _vm._v("Date")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  { staticClass: "nav-link", attrs: { href: "#vaccine" } },
-                  [_vm._v("Get Vaccine")]
-                )
-              ])
-            ])
+          _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: "/svg/096-twitter.svg",
+                alt: "twitter",
+                height: "32"
+              }
+            })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3 text-center text-lg-right" }, [
-            _c(
-              "a",
-              { staticClass: "social-media-icon", attrs: { href: "#" } },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "/svg/044-instagram.svg",
-                    alt: "instagram",
-                    height: "32"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "social-media-icon", attrs: { href: "#" } },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "/svg/096-twitter.svg",
-                    alt: "twitter",
-                    height: "32"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "social-media-icon", attrs: { href: "#" } },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "/svg/116-youtube.svg",
-                    alt: "youtube",
-                    height: "32"
-                  }
-                })
-              ]
-            )
+          _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: "/svg/116-youtube.svg",
+                alt: "youtube",
+                height: "32"
+              }
+            })
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-sidebar" }, [
-        _c("div", { staticClass: "arrow" })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sidebar-backdrop" }),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "sidebar" } }, [
-        _c("img", {
-          attrs: { src: "/images/5fe5ac367667c.jpg", alt: "info-1" }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          attrs: { src: "/images/5fd8922e13335.jpg", alt: "info-2" }
-        })
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn btn-sidebar" }, [
+      _c("div", { staticClass: "arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "sidebar" } }, [
+      _c("img", { attrs: { src: "/images/5fe5ac367667c.jpg", alt: "info-1" } }),
+      _vm._v(" "),
+      _c("img", { attrs: { src: "/images/5fd8922e13335.jpg", alt: "info-2" } })
     ])
   }
 ]

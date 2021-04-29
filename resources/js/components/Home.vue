@@ -20,6 +20,12 @@
                 <li class="nav-item">
                     <a href="#vaccine" class="nav-link">Get Vaccine</a>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/" class="nav-link-btn">Login</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/" class="nav-link-btn">Register</router-link>
+                </li>
             </ul>
             <button class="navbar-toggler">
                 <div class="hamburger"></div>
@@ -114,7 +120,7 @@
         </div>
         <div id="news" class="border-bottom-black">
             <div class="row">
-                <div class="col-lg-3 py-80 px-20 bg-black">
+                <div class="col-lg-3 py-80 px-20 bg-blue">
                     <h2 class="display-4 text-center">Latest News</h2>
                 </div>
                 <div class="col-lg-9 px-0">
@@ -258,7 +264,7 @@
         <footer class="py-80">
             <div class="row">
                 <div class="col-lg-3 text-center text-lg-left">
-                    <img src="/images/logo-black.png" alt="logo" height="32">
+                    <img src="/images/logo-black.png" class="footer-logo" alt="logo" height="32">
                     <p class="text-muted mt-3 mb-0">&copy; 2021 SMK Nusantara</p>
                     <p class="text-muted my-0">All Rights Reserved</p>
                 </div>
