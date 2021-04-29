@@ -1,34 +1,34 @@
 @font-face {
     font-family: Montserrat;
-    src: url("../fonts/Montserrat-Regular.ttf");
+    src: url(/fonts/Montserrat-Regular.ttf?3cd786652b8a2e9d41f210cb1a527ff6);
 }
 
 @font-face {
     font-family: Montserrat;
-    src: url("../fonts/Montserrat-SemiBold.ttf");
+    src: url(/fonts/Montserrat-SemiBold.ttf?fa8441f345d83a0bc4ec345a6948dbb0);
     font-weight: 600;
 }
 
 @font-face {
     font-family: Montserrat;
-    src: url("../fonts/Montserrat-Bold.ttf");
+    src: url(/fonts/Montserrat-Bold.ttf?079ca05d3ded9bc107ab8a8da013be22);
     font-weight: bold;
 }
 
 @font-face {
     font-family: Roboto;
-    src: url("../fonts/Roboto-Regular.ttf");
+    src: url(/fonts/Roboto-Regular.ttf?03523cf578d69fa923226ff457b92d90);
 }
 
 @font-face {
     font-family: Roboto;
-    src: url("../fonts/Roboto-Medium.ttf");
+    src: url(/fonts/Roboto-Medium.ttf?13a29228654d5c5ec9c482a267efa4af);
     font-weight: 500;
 }
 
 @font-face {
     font-family: Roboto;
-    src: url("../fonts/Roboto-Bold.ttf");
+    src: url(/fonts/Roboto-Bold.ttf?4f39c5796e60c9d8e7327a00e9a4442e);
     font-weight: bold;
 }
 
@@ -207,7 +207,8 @@ p {
 }
 
 .slide img {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     width: 100%;
     height: 90vh;
     filter: brightness(.5);
@@ -253,7 +254,17 @@ p {
 }
 
 .slide.fade {
-    animation: slide-fade 1.5s;
+    -webkit-animation: slide-fade 1.5s;
+            animation: slide-fade 1.5s;
+}
+
+@-webkit-keyframes slide-fade {
+    from {
+        opacity: .4;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slide-fade {
@@ -430,7 +441,8 @@ p {
 .img-about {
     width: 100%;
     height: 10rem;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border: 3px solid var(--nvc-black);
 }
 
@@ -479,8 +491,10 @@ p {
 .img-news, .img-news-big {
     width: 100%;
     height: 15rem;
-    object-fit: cover;
-    object-position: top;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: top;
+       object-position: top;
     border: 3px solid var(--nvc-black);
 }
 
@@ -617,7 +631,8 @@ p {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .6);
-    animation: fade 150ms;
+    -webkit-animation: fade 150ms;
+            animation: fade 150ms;
 }
 
 #sidebar img {
@@ -671,3 +686,4 @@ p {
     margin-right: auto;
     margin-left: auto;
 }
+
