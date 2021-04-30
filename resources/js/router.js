@@ -7,6 +7,7 @@ import Welcome from "./components/admin/Welcome";
 import VacCenter from "./components/admin/VacCenter";
 import Vaccine from "./components/admin/Vaccine";
 import Stock from "./components/admin/Stock";
+import Schedule from "./components/admin/Schedule";
 
 const router = new VueRouter({
     mode: "history",
@@ -33,7 +34,10 @@ const router = new VueRouter({
             component: Vaccine,
         }, {
             path: "stock",
-            component: Stock
+            component: Stock,
+        }, {
+            path: "schedule",
+            component: Schedule,
         }],
     }],
 });

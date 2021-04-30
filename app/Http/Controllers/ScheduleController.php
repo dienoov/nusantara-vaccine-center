@@ -19,14 +19,14 @@ class ScheduleController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'date' => 'required|date|date_format:d-m-Y',
-            'time' => 'required|date_format:H:i:s',
+            'date' => 'required|date|date_format:Y-m-d',
+            'time' => 'required|date_format:H:i',
             'vac_center_id' => 'required|exists:vac_centers,id',
         ]);
 
         $input = $request->only(['vac_center_id']);
-        $input['date'] = Carbon::createFromFormat('d-m-Y', $request->date)->toDateString();
-        $input['time'] = Carbon::createFromFormat('H:i:s', $request->time)->toTimeString();
+        $input['date'] = Carbon::createFromFormat('Y-m-d', $request->date)->toDateString();
+        $input['time'] = Carbon::createFromFormat('H:i', $request->time)->toTimeString();
 
         $schedule = Schedule::create($input);
 
@@ -39,14 +39,14 @@ class ScheduleController extends Controller
     public function update(Request $request, int $id)
     {
         $request->validate([
-            'date' => 'required|date|date_format:d-m-Y',
-            'time' => 'required|date_format:H:i:s',
+            'date' => 'required|date|date_format:Y-m-d',
+            'time' => 'required|date_format:H:i',
             'vac_center_id' => 'required|exists:vac_centers,id',
         ]);
 
         $input = $request->only(['vac_center_id']);
-        $input['date'] = Carbon::createFromFormat('d-m-Y', $request->date)->toDateString();
-        $input['time'] = Carbon::createFromFormat('H:i:s', $request->time)->toTimeString();
+        $input['date'] = Carbon::createFromFormat('Y-m-d', $request->date)->toDateString();
+        $input['time'] = Carbon::createFromFormat('H:i', $request->time)->toTimeString();
 
         $schedule = Schedule::find($id);
         $schedule->update($input);
