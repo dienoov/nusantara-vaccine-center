@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stock;
-use App\Models\Vaccine;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -55,7 +54,7 @@ class StockController extends Controller
 
     public function delete(int $id)
     {
-        Vaccine::destroy($id);
+        Stock::destroy($id);
 
         return response([
             'message' => 'Success',
