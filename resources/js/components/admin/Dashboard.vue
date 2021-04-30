@@ -228,4 +228,26 @@ export default {
 .sidebar-toggler:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        transform: translate(-125%);
+        transition-property: width, transform;
+    }
+
+    .sidebar.active {
+        transform: translate(0);
+        width: calc(100% - 3rem);
+    }
+
+    .topbar, .sidebar.active ~ .topbar {
+        width: calc(100% - 3rem);
+        left: 1.5rem;
+    }
+
+    .content, .sidebar.active ~ .content {
+        width: calc(100% - 3rem);
+        margin-left: 1.5rem;
+    }
+}
 </style>
