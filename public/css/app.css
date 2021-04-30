@@ -75,6 +75,11 @@ p {
     color: var(--nvc-black);
 }
 
+.bg-white {
+    background-color: white;
+    color: var(--nvc-black);
+}
+
 .fixed-top {
     position: fixed;
     top: 0;
@@ -350,6 +355,10 @@ p {
 
 .mb-3, .my-3 {
     margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
 }
 
 .row {
@@ -710,5 +719,289 @@ p {
     .navbar-brand img {
         height: 20px;
     }
+}
+
+.w-lg-50 {
+    width: 50%;
+}
+
+@media screen and (max-width: 992px) {
+    .w-lg-50 {
+        width: 100%;
+    }
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.mt-6 {
+    margin-top: 5rem;
+}
+
+.mt-8 {
+    margin-top: 8rem;
+}
+
+.p-3 {
+    padding: 1rem;
+}
+
+.p-4 {
+    padding: 2rem;
+}
+
+.p-5 {
+    padding: 3rem;
+}
+
+.d-block {
+    display: block;
+}
+
+.font-weight-medium {
+    font-weight: 500;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: .5rem .75rem;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    border-radius: .25rem;
+    font-family: Roboto, sans-serif;
+    font-size: 100%;
+    transition: border 150ms ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, .5);
+}
+
+.logo-md {
+    width: auto;
+    height: 2rem;
+}
+
+@media screen and (max-width: 576px) {
+    .logo-md {
+        width: auto;
+        height: 1.5rem;
+    }
+}
+
+form .btn {
+    padding: .75rem 1.75rem;
+    font-size: 100%;
+}
+
+.btn-blue {
+    background-color: var(--nvc-blue);
+    color: var(--nvc-white);
+    transition: background-color 150ms ease;
+}
+
+.btn-blue:hover {
+    background-color: #0437e5;
+}
+
+.btn-rounded {
+    border-radius: 2rem;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.shadow-md {
+    box-shadow: 0 0 2.5rem .25rem rgba(0, 0, 0, .025);
+}
+
+.text-danger {
+    color: #ae0b0b;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+}
+
+.table th {
+    font-family: Montserrat, sans-serif;
+    text-align: left;
+}
+
+.table th, .table td {
+    padding: 1rem;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, .025);
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, .05);
+    transition: background-color 150ms ease;
+}
+
+.table tbody tr:hover {
+    background-color: var(--nvc-blue);
+    color: white;
+}
+
+.table tbody tr:hover svg {
+    color: white;
+}
+
+.table tbody td:first-child {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.table tbody td:last-child {
+    border-radius: 0 1rem 1rem 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.btn-light-blue {
+    background-color: var(--nvc-light-blue);
+    color: white;
+}
+
+.btn-center {
+    padding: .25rem .75rem;
+}
+
+.btn-pill {
+    border-radius: .5rem;
+}
+
+.btn-add {
+    width: 3.5rem;
+    transition: width 150ms ease;
+    overflow-x: hidden;
+}
+
+.btn-add span {
+    display: none;
+}
+
+.btn-add:hover {
+    width: 6rem;
+}
+
+.btn-add:hover span {
+    display: inline-block;
+}
+
+.modal-admin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .0);
+    transition: background-color .5s ease;
+    z-index: -1;
+}
+
+.modal-admin.active {
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .25);
+}
+
+.modal-admin .title, .modal-admin .body {
+    background-color: white;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    transform: translateY(-1000%);
+    transition: transform .5s ease-out;
+}
+
+.modal-admin.active .title, .modal-admin.active .body {
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 992px) {
+    .modal-admin .title, .modal-admin .body {
+        width: 90%;
+    }
+}
+
+.modal-admin .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-admin .close {
+    font-size: 2.5rem;
+}
+
+.form-admin div + div {
+    margin-top: 1.5rem;
+}
+
+.form-admin label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 500;
+}
+
+.form-admin input {
+    width: 100%;
+    padding: .75rem 1.5rem;
+    background-color: rgba(0, 0, 0, .075);
+    border: none;
+    border-radius: 1rem;
+    font-family: Roboto, sans-serif;
+    font-size: 100%;
+    transition: background-color 150ms ease;
+}
+
+.form-admin input:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, .05);
 }
 

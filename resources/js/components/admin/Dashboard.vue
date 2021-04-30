@@ -1,0 +1,231 @@
+<template>
+    <div>
+        <div class="sidebar" :class="{active: sidebarActive}">
+            <img src="/images/logo-black.png" alt="logo">
+            <ul>
+                <li>
+                    <router-link to="/admin">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        <h4>Dashboard</h4>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/admin/vac-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                        <h4>Vac Center</h4>
+                    </router-link>
+                </li>
+            </ul>
+        </div>
+        <div class="topbar">
+            <div class="sidebar-toggler" :class="{active: sidebarActive}" @click="toggleSidebar">
+                <div class="hamburger-arrow"></div>
+            </div>
+        </div>
+        <div class="content">
+            <router-view></router-view>
+        </div>
+    </div>
+</template>
+
+<script>
+
+export default {
+    name: "Dashboard",
+    data() {
+        return {
+            sidebarActive: true,
+        };
+    },
+    methods: {
+        toggleSidebar() {
+            this.sidebarActive = !this.sidebarActive;
+            localStorage.setItem("sidebar_active", this.sidebarActive ? "true" : "false");
+        },
+    },
+    mounted() {
+        this.sidebarActive = localStorage.getItem("sidebar_active") === "true";
+    },
+}
+</script>
+
+<style scoped>
+.sidebar {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 5rem;
+    background-color: white;
+    height: calc(100vh - 3rem);
+    padding: 1rem;
+    color: var(--nvc-black);
+    box-shadow: 0 0 2.5rem .5rem rgba(0, 0, 0, .01);
+    border-radius: 2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition-property: width, padding;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+}
+
+.sidebar.active {
+    width: 20rem;
+    padding: 2rem;
+}
+
+.sidebar ul {
+    padding-inline-start: 0;
+    margin: 0;
+}
+
+.sidebar li svg {
+    color: var(--nvc-black);
+    height: 2rem;
+}
+
+.sidebar.active li svg {
+    margin-right: 1rem;
+}
+
+.sidebar li {
+    list-style: none;
+    border-radius: 2rem;
+    transition: background-color 150ms ease;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    color: var(--nvc-black);
+    text-decoration: none;
+}
+
+.sidebar.active a {
+    padding: .75rem 1.5rem;
+}
+
+.sidebar li h4 {
+    margin: 0;
+    display: none;
+}
+
+.sidebar.active li h4 {
+    display: block;
+}
+
+.sidebar li:hover {
+    cursor: pointer;
+    background-color: var(--nvc-blue);
+}
+
+.sidebar li:hover svg, .sidebar li:hover a {
+    color: white;
+}
+
+.sidebar img {
+    height: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    display: none;
+}
+
+.sidebar.active img {
+    display: block;
+}
+
+.sidebar li + li {
+    margin-top: .5rem;
+}
+
+.content {
+    margin-left: 8rem;
+    margin-top: 8rem;
+    margin-right: 1.5rem;
+    background-color: white;
+    padding: 2rem;
+    color: var(--nvc-black);
+    box-shadow: 0 0 2.5rem .5rem rgba(0, 0, 0, .01);
+    border-radius: 2rem;
+    transition: margin-left .5s ease;
+}
+
+.sidebar.active ~ .content {
+    margin-left: 23rem;
+}
+
+.topbar {
+    position: absolute;
+    top: 1.5rem;
+    left: 8rem;
+    width: calc(100% - 9.5rem);
+    background-color: white;
+    height: 5rem;
+    padding: 1rem 2rem;
+    color: var(--nvc-black);
+    box-shadow: 0 0 2.5rem .5rem rgba(0, 0, 0, .01);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    transition-property: left, width;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+}
+
+.sidebar.active ~ .topbar {
+    left: 23rem;
+    width: calc(100% - 24.5rem);
+}
+
+.hamburger-arrow, .hamburger-arrow:before, .hamburger-arrow:after {
+    background-color: var(--nvc-black);
+    height: .2rem;
+    width: 2rem;
+    border-radius: .2rem;
+    position: relative;
+    transition-property: transform, width;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+}
+
+.hamburger-arrow:before {
+    content: "";
+    position: absolute;
+    top: -.5rem;
+}
+
+.hamburger-arrow:after {
+    content: "";
+    position: absolute;
+    top: .5rem;
+}
+
+.sidebar-toggler.active .hamburger-arrow:before {
+    transform: rotate(-45deg) translate(-.1rem);
+    width: 1.25rem;
+}
+
+.sidebar-toggler.active .hamburger-arrow:after {
+    transform: rotate(45deg) translate(-.1rem);
+    width: 1.25rem;
+}
+
+.sidebar-toggler {
+    width: 2rem;
+    height: 5rem;
+    padding-top: 2.5rem;
+}
+
+.sidebar-toggler:hover {
+    cursor: pointer;
+}
+</style>

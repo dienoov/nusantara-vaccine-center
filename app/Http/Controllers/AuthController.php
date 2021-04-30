@@ -66,7 +66,7 @@ class AuthController extends Controller
         if (!Auth::guard('admin-web')->attempt($request->only(['username', 'password'])))
             return response([
                 'message' => 'Invalid username or password',
-            ]);
+            ], 401);
 
         $user = Auth::guard('admin-web')->user();
         $token = $user->createToken('nvc', ['admin'])->accessToken;
