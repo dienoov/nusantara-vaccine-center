@@ -2237,6 +2237,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Dashboard",
   data: function data() {
@@ -2487,6 +2500,163 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Vaccine.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Vaccine.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "VacCenter",
+  data: function data() {
+    return {
+      form: {
+        id: 0,
+        brand: "",
+        detail: "",
+        contact: ""
+      },
+      vaccines: [],
+      modalActive: false,
+      action: ""
+    };
+  },
+  methods: {
+    loadData: function loadData() {
+      var _this = this;
+
+      this.$http.get("/api/vaccine").then(function (_ref) {
+        var data = _ref.data;
+        return _this.vaccines = data.vaccines;
+      });
+    },
+    toggleModal: function toggleModal() {
+      this.modalActive = !this.modalActive;
+    },
+    createData: function createData() {
+      this.action = "New";
+      this.form = {
+        id: 0,
+        brand: "",
+        detail: "",
+        contact: ""
+      };
+      this.toggleModal();
+    },
+    updateData: function updateData(vaccine) {
+      this.action = "Edit";
+      this.form = {
+        id: vaccine.id,
+        brand: vaccine.brand,
+        detail: vaccine.detail,
+        contact: vaccine.contact
+      };
+      this.toggleModal();
+    },
+    saveData: function saveData() {
+      var _this2 = this;
+
+      var req = this.form.id === 0 ? this.$http.post("/api/vaccine", this.form) : this.$http.post("/api/vaccine/".concat(this.form.id), this.form);
+      req.then(function () {
+        _this2.loadData();
+
+        _this2.toggleModal();
+      });
+    },
+    deleteData: function deleteData(id) {
+      var _this3 = this;
+
+      this.$http["delete"]("/api/vaccine/".concat(id)).then(function () {
+        return _this3.loadData();
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.loadData();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Welcome.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Welcome.vue?vue&type=script&lang=js& ***!
@@ -2576,19 +2746,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Home */ "./resources/js/components/Home.vue");
 /* harmony import */ var _components_admin_Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/admin/Login */ "./resources/js/components/admin/Login.vue");
 /* harmony import */ var _components_admin_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/admin/Dashboard */ "./resources/js/components/admin/Dashboard.vue");
 /* harmony import */ var _components_admin_Welcome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/admin/Welcome */ "./resources/js/components/admin/Welcome.vue");
 /* harmony import */ var _components_admin_VacCenter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/admin/VacCenter */ "./resources/js/components/admin/VacCenter.vue");
+/* harmony import */ var _components_admin_Vaccine__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/admin/Vaccine */ "./resources/js/components/admin/Vaccine.vue");
 
 
 
 
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__.default({
+
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__.default({
   mode: "history",
   routes: [{
     path: "/",
@@ -2608,6 +2780,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__.default({
     }, {
       path: "vac-center",
       component: _components_admin_VacCenter__WEBPACK_IMPORTED_MODULE_4__.default
+    }, {
+      path: "vaccine",
+      component: _components_admin_Vaccine__WEBPACK_IMPORTED_MODULE_5__.default
     }]
   }]
 });
@@ -20443,6 +20618,45 @@ component.options.__file = "resources/js/components/admin/VacCenter.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/Vaccine.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/admin/Vaccine.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Vaccine_vue_vue_type_template_id_0a99961a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Vaccine.vue?vue&type=template&id=0a99961a&scoped=true& */ "./resources/js/components/admin/Vaccine.vue?vue&type=template&id=0a99961a&scoped=true&");
+/* harmony import */ var _Vaccine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Vaccine.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/Vaccine.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Vaccine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _Vaccine_vue_vue_type_template_id_0a99961a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Vaccine_vue_vue_type_template_id_0a99961a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "0a99961a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/Vaccine.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/Welcome.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/admin/Welcome.vue ***!
@@ -20562,6 +20776,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/Vaccine.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/admin/Vaccine.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Vaccine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Vaccine.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Vaccine.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Vaccine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/Welcome.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/admin/Welcome.vue?vue&type=script&lang=js& ***!
@@ -20659,6 +20889,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VacCenter_vue_vue_type_template_id_674c44b2_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VacCenter_vue_vue_type_template_id_674c44b2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VacCenter.vue?vue&type=template&id=674c44b2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/VacCenter.vue?vue&type=template&id=674c44b2&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Vaccine.vue?vue&type=template&id=0a99961a&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/admin/Vaccine.vue?vue&type=template&id=0a99961a&scoped=true& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Vaccine_vue_vue_type_template_id_0a99961a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Vaccine_vue_vue_type_template_id_0a99961a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Vaccine_vue_vue_type_template_id_0a99961a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Vaccine.vue?vue&type=template&id=0a99961a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Vaccine.vue?vue&type=template&id=0a99961a&scoped=true&");
 
 
 /***/ }),
@@ -21444,7 +21691,7 @@ var render = function() {
       "div",
       { staticClass: "sidebar", class: { active: _vm.sidebarActive } },
       [
-        _c("img", { attrs: { src: "/images/logo-black.png", alt: "logo" } }),
+        _c("img", { attrs: { src: "/svg/logo-black.svg", alt: "logo" } }),
         _vm._v(" "),
         _c("ul", [
           _c(
@@ -21454,7 +21701,6 @@ var render = function() {
                 _c(
                   "svg",
                   {
-                    staticClass: "h-6 w-6",
                     attrs: {
                       xmlns: "http://www.w3.org/2000/svg",
                       fill: "none",
@@ -21488,7 +21734,6 @@ var render = function() {
                 _c(
                   "svg",
                   {
-                    staticClass: "h-6 w-6",
                     attrs: {
                       xmlns: "http://www.w3.org/2000/svg",
                       fill: "none",
@@ -21509,7 +21754,36 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _c("h4", [_vm._v("Vac Center")])
+                _c("h4", [_vm._v("Vaccine Center")])
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: "/admin/vaccine" } }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "currentColor",
+                      viewBox: "0 0 512.002 512.002"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M505.201,64.484L446.947,6.229c-8.304-8.304-21.771-8.306-30.077,0c-8.306,8.304-8.306,21.771,0,30.077l14.659,14.659\n\t\t\t            l-75.01,75.012l-46.643-46.643c-8.304-8.306-21.771-8.306-30.077,0c-8.306,8.306-8.306,21.771,0,30.077l8.95,8.95L65.055,342.051\n\t\t\t            c-3.557,3.557-5.738,8.259-6.156,13.271l-6.207,74.48l-45.89,45.892c-8.306,8.304-8.306,21.771,0,30.077\n\t\t\t            c4.153,4.153,9.596,6.23,15.038,6.23c5.442,0,10.886-2.077,15.038-6.23l45.89-45.89l74.48-6.207\n\t\t\t            c5.012-0.418,9.715-2.599,13.271-6.156l223.693-223.693l8.948,8.948c4.153,4.153,9.596,6.23,15.038,6.23s10.886-2.076,15.038-6.23\n\t\t\t            c8.306-8.306,8.306-21.771,0-30.077l-46.643-46.643l75.01-75.01L475.12,94.56c4.153,4.153,9.596,6.23,15.038,6.23\n\t\t\t            s10.886-2.077,15.038-6.23C513.507,86.256,513.507,72.79,505.201,64.484z M145.953,411.931l-49.429,4.119l4.119-49.429\n\t\t\t            l158.786-158.787l45.312,45.312L145.953,411.931z M334.817,223.068l-45.312-45.312l29.32-29.32l45.312,45.312L334.817,223.068z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h4", [_vm._v("Vaccine")])
               ])
             ],
             1
@@ -21976,6 +22250,289 @@ var staticRenderFns = [
         _c("th", [_vm._v("Address")]),
         _vm._v(" "),
         _c("th", [_vm._v("Contact")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Actions")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "button",
+        { staticClass: "btn btn-blue btn-rounded ml-auto d-block" },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Vaccine.vue?vue&type=template&id=0a99961a&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Vaccine.vue?vue&type=template&id=0a99961a&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "d-flex align-items-center justify-content-between mb-4" },
+      [
+        _c("h1", { staticClass: "m-0" }, [_vm._v("Vaccine")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn-pill btn-blue btn-center btn-add d-flex align-items-center",
+            on: { click: _vm.createData }
+          },
+          [
+            _c(
+              "svg",
+              {
+                staticClass: "h-5 w-5",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 20 20",
+                  height: "32",
+                  fill: "currentColor"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    va: "",
+                    d:
+                      "M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z",
+                    "clip-rule": "evenodd"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("span", [_vm._v("New")])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.vaccines, function(vaccine) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(vaccine.brand))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(vaccine.detail))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn",
+                    on: {
+                      click: function($event) {
+                        return _vm.updateData(vaccine)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-5 w-5",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20",
+                          height: "20",
+                          fill: "currentColor"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteData(vaccine.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-5 w-5",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20",
+                          height: "20",
+                          fill: "currentColor"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
+                            "clip-rule": "evenodd"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ])
+          }),
+          0
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "modal-admin", class: { active: _vm.modalActive } },
+      [
+        _c("div", { staticClass: "title" }, [
+          _c("h2", { staticClass: "m-0" }, [
+            _vm._v(_vm._s(_vm.action) + " Vaccine")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn close", on: { click: _vm.toggleModal } },
+            [_vm._v("×")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "body" }, [
+          _c(
+            "form",
+            {
+              staticClass: "form-admin",
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.saveData($event)
+                }
+              }
+            },
+            [
+              _c("div", [
+                _c("label", { attrs: { for: "brand" } }, [_vm._v("Brand")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.brand,
+                      expression: "form.brand"
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    name: "brand",
+                    id: "brand",
+                    placeholder: "Vaccine brand",
+                    required: ""
+                  },
+                  domProps: { value: _vm.form.brand },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "brand", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", { attrs: { for: "detail" } }, [_vm._v("Detail")]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.detail,
+                      expression: "form.detail"
+                    }
+                  ],
+                  attrs: {
+                    name: "detail",
+                    id: "detail",
+                    placeholder: "Vaccine detail",
+                    required: ""
+                  },
+                  domProps: { value: _vm.form.detail },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "detail", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Brand")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Detail")]),
         _vm._v(" "),
         _c("th", [_vm._v("Actions")])
       ])

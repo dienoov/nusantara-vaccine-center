@@ -5,6 +5,7 @@ import Login from "./components/admin/Login";
 import Dashboard from "./components/admin/Dashboard";
 import Welcome from "./components/admin/Welcome";
 import VacCenter from "./components/admin/VacCenter";
+import Vaccine from "./components/admin/Vaccine";
 
 const router = new VueRouter({
     mode: "history",
@@ -26,6 +27,9 @@ const router = new VueRouter({
         }, {
             path: "vac-center",
             component: VacCenter,
+        }, {
+            path: "vaccine",
+            component: Vaccine,
         }],
     }],
 });
