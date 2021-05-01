@@ -38,24 +38,30 @@
                 </li>
                 <li>
                     <router-link to="/admin/stock">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
                         </svg>
                         <h4>Vaccine Stock</h4>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/schedule">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                         <h4>Schedule</h4>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/status">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                         <h4>Status</h4>
                     </router-link>
@@ -80,6 +86,7 @@ export default {
     data() {
         return {
             sidebarActive: true,
+            user: {},
         };
     },
     methods: {
@@ -87,9 +94,15 @@ export default {
             this.sidebarActive = !this.sidebarActive;
             localStorage.setItem("sidebar_active", this.sidebarActive ? "true" : "false");
         },
+        loadData() {
+            this.$http.get("/api/admin")
+                .then(({data}) => this.user = data)
+                .catch(() => this.$router.push("/admin/login"));
+        },
     },
     mounted() {
         this.sidebarActive = localStorage.getItem("sidebar_active") === "true";
+        this.loadData();
     },
 }
 </script>

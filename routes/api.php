@@ -31,6 +31,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
+    Route::get('admin', function (Request $request) {
+        return $request->user();
+    });
+
     Route::prefix('vac-center')->group(function () {
         Route::get('', [VacCenterController::class, 'all']);
         Route::get('{id}/stocks', [VacCenterController::class, 'stocks']);
