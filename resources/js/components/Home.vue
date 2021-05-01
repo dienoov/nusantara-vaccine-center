@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <nav class="navbar fixed-top bg-light border-bottom-black">
+    <div class="home">
+        <nav class="navbar fixed-top">
             <a href="/" class="navbar-brand">
-                <img src="/images/logo-black.png" alt="logo">
+                <img src="/svg/logo-white.svg" alt="logo">
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <router-link to="/" class="nav-link">Home</router-link>
                 </li>
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About</a>
@@ -31,135 +31,183 @@
                 <div class="hamburger"></div>
             </button>
         </nav>
-        <div id="slider" class="slider border-bottom-black">
+        <div id="slider" class="slider">
             <div class="slides">
                 <div class="slide fade">
-                    <img src="/images/img1.jpg" alt="img1">
+                    <img src="/images/pexels-cottonbro-3951355.jpg" alt="img1">
                     <div class="caption">
-                        <h2>Boris Johnson faces battle to get vaccine passports through parliament</h2>
-                        <p class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, molestias, nesciunt! Aut
-                            esse ex
-                            laboriosam quisquam rerum. Amet, aperiam consequuntur corporis dolores eum minima pariatur
-                            placeat
-                            qui quod quos, repellat.
-                        </p>
-                    </div>
-                    <div class="detail text-right">
-                        <h4 class="my-0">April 5, 2021</h4>
-                        <p class="text-muted mt-1 mb-3">4:30pm</p>
-                        <h4 class="my-0">Jakarta Selatan</h4>
-                        <p class="text-muted mt-1 mb-3">DKI Jakarta, Indonesia</p>
-                    </div>
-                </div>
-                <div class="slide fade">
-                    <img src="/images/img2.jpg" alt="img2">
-                    <div class="caption">
-                        <h2>Modernas Covid vaccine rolled out in Nusantara</h2>
-                        <p class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,
-                            eos,
-                            eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis
-                            placeat
-                            quisquam quo quod sapiente totam.
-                        </p>
-                    </div>
-                    <div class="detail text-right">
-                        <h4 class="my-0">April 3, 2021</h4>
-                        <p class="text-muted mt-1 mb-3">2:21pm</p>
-                        <h4 class="my-0">Semarang</h4>
-                        <p class="text-muted mt-1 mb-3">Jawa Tengah, Indonesia</p>
-                    </div>
-                </div>
-                <div class="slide fade">
-                    <img src="/images/img3.jpg" alt="img3">
-                    <div class="caption">
-                        <h2>A coronavirus vaccine developed by Chinas Sinovac has been found</h2>
-                        <p class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,
-                            eos,
-                            eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis
-                            placeat
-                            quisquam quo quod sapiente totam.
-                        </p>
-                    </div>
-                    <div class="detail text-right">
-                        <h4 class="my-0">April 1, 2021</h4>
-                        <p class="text-muted mt-1 mb-3">6:03am</p>
-                        <h4 class="my-0">Malang</h4>
-                        <p class="text-muted mt-1 mb-3">Jawa Timur, Indonesia</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="about" class="py-80 border-bottom-black">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2 class="display-4 my-0">About Us</h2>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio quam
-                        qui
-                        sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt voluptatem!
-                        Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam
-                        mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?
-                    </p>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse est
-                        facere
-                        facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi
-                        exercitationem
-                        explicabo facere non?
-                    </p>
-                    <button class="btn btn-light mt-3">Learn More...</button>
-                </div>
-                <div class="col-lg-6">
-                    <img src="/images/img13.jpg" alt="img13" class="img-about mb-3">
-                    <img src="/images/img14.jpg" alt="img14" class="img-about">
-                </div>
-            </div>
-        </div>
-        <div id="news" class="border-bottom-black">
-            <div class="row">
-                <div class="col-lg-3 py-80 px-20 bg-blue">
-                    <h2 class="display-4 text-center">Latest News</h2>
-                </div>
-                <div class="col-lg-9 px-0">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <img src="/images/covid-19-and-tobacco-1---bi.png" alt="news-1" class="img-news-big">
-                        </div>
-                        <div class="col-lg-6">
-                            <h3>Covid-19 and Tobacco</h3>
-                            <p>April 10, 2021</p>
+                        <div class="container">
+                            <h2>Protect Yourself From COVID-19</h2>
                             <p class="text-muted">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem dignissimos
-                                labore
-                                magnam ratione repudiandae sunt. Aliquid deserunt, eaque et molestiae nisi nobis quaerat
-                                quisquam tempore unde, velit vitae, voluptate!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, amet architecto
+                                asperiores consectetur dolorem doloremque eaque hic ipsam laboriosam nam nemo numquam
+                                obcaecati provident quasi rem rerum, vel veritatis vitae.
                             </p>
-                            <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="/images/new-normal-1---bie4b73458c9a84d4995ebef27544a3a0a.png" alt="news-2"
-                                 class="img-news">
-                            <h3>How to Protect Yourself From Covid-19</h3>
-                            <p>April 8, 2021</p>
-                            <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>
+                </div>
+                <div class="slide fade">
+                    <img src="/images/pexels-cottonbro-3951862.jpg" alt="img2">
+                    <div class="caption">
+                        <div class="container">
+                            <h2>Always Sanitize Your Hands</h2>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum eius eum hic, molestias
+                                nobis non! Assumenda, culpa cum debitis dolorem exercitationem fuga laboriosam magni
+                                obcaecati quaerat quia quidem vel.
+                            </p>
                         </div>
-                        <div class="col-lg-4">
-                            <img src="/images/new-normal-2---bi082a3c1d6a2345f280eded572345272f.png" alt="news-3"
-                                 class="img-news">
-                            <h3>Stay Alert, Control the Virus, Save Lives</h3>
-                            <p>April 7, 2021</p>
-                            <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="/images/pexels-cottonbro-3951600.jpg" alt="img3">
+                    <div class="caption">
+                        <div class="container">
+                            <h2>Stay-at-home order</h2>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat incidunt molestiae
+                                nulla odio? Aut consequatur dolorum eius minus officia, repellat tenetur voluptas.
+                                Accusantium aliquam at consequatur error repellat sapiente vero?
+                            </p>
                         </div>
-                        <div class="col-lg-4">
-                            <img src="/images/new-normal-4---bi.png" alt="news-4" class="img-news">
-                            <h3>Wash Your Hands. Dont Get Sick.</h3>
-                            <p>April 6, 2021</p>
-                            <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="/images/pexels-cottonbro-3952238.jpg" alt="img3">
+                    <div class="caption">
+                        <div class="container">
+                            <h2>When Is the End of COVID-19?</h2>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium, architecto
+                                aspernatur eius laudantium libero nam, natus nostrum optio quaerat qui quod rem
+                                repudiandae! Ab accusamus accusantium laborum voluptas voluptatibus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="py-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="/images/pexels-cottonbro-3952224.jpg" alt="img13" class="img-about">
+                        <div class="box">
+                            <h3>Covid Vaccine Center</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <div class="box-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="display-4 my-0">About Us</h2>
+                        <p class="text-muted">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio
+                            quam
+                            qui
+                            sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt
+                            voluptatem!
+                            Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam
+                            mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?
+                        </p>
+                        <p class="text-muted">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse
+                            est
+                            facere
+                            facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi
+                            exercitationem
+                            explicabo facere non?
+                        </p>
+                        <!--                        <button class="btn btn-light mt-3">Learn More...</button>-->
+                        <div class="row no-gutters mt-4">
+                            <div class="col-sm-6">
+                                <h3 class="display-4 m-0">250+</h3>
+                                <p class="m-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h3 class="display-4 m-0">900+</h3>
+                                <p class="m-0 text-muted">Accusamus assumenda corporis ducimus.</p>
+                            </div>
+                        </div>
+                        <div class="row no-gutters mt-3">
+                            <div class="col-sm-6">
+                                <h3 class="display-4 m-0">12</h3>
+                                <p class="m-0 text-muted">Assumenda labore, nesciunt.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h3 class="display-4 m-0">25</h3>
+                                <p class="m-0 text-muted">Quam quos saepe temporibus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="news" class="py-80 bg-grey">
+            <div class="container">
+                <h2 class="display-4">Latest News</h2>
+                <div class="row no-gutters wrapper">
+                    <div class="col-lg-6">
+                        <img src="/images/img2.jpg" alt="news-1" class="img-news-big">
+                    </div>
+                    <div class="col-lg-6 px-4">
+                        <h3>Johnson & Johnson COVID-19 Vaccine Is Back: What Experts Want You to Know</h3>
+                        <strong class="text-muted">10/04/21</strong>
+                        <p class="text-muted mb-4">
+                            U.S. federal health officials said on April 23 that vaccinations with Johnson & Johnson’s
+                            COVID-19 vaccine can restart, with…
+                        </p>
+                        <div class="box-arrow ml-auto"></div>
+                        <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
+                    </div>
+                </div>
+                <div class="row no-gutters mt-4">
+                    <div class="col-lg-4">
+                        <div class="wrapper">
+                            <img src="/images/img7.jpg" alt="news-1" class="img-news">
+                            <div class="px-3 pb-4">
+                                <h3>
+                                    Pfizer Vaccine Still Very Effective Against Coronavirus Variant Despite Small Window
+                                    of
+                                    Risk
+                                </h3>
+                                <strong class="text-muted">08/04/21</strong>
+                                <p class="text-muted mb-4">
+                                    The variant first detected in South Africa may evade some of the protection the
+                                    Pfizer-BioNTech COVID-19 vaccine offers, but…
+                                </p>
+                                <div class="box-arrow ml-auto"></div>
+                            </div>
+                            <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="wrapper">
+                            <img src="/images/img6.jpg" alt="news-1" class="img-news">
+                            <div class="px-3 pb-4">
+                                <h3>What to Expect from a COVID-19 Vaccine If You Have a Chronic Condition</h3>
+                                <strong class="text-muted">08/04/21</strong>
+                                <p class="text-muted mb-4">
+                                    Health experts widely believe the benefits of the vaccine outweigh the risks of a
+                                    potential reaction or flare-up, since…
+                                </p>
+                                <div class="box-arrow ml-auto"></div>
+                            </div>
+                            <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="wrapper">
+                            <img src="/images/img3.jpg" alt="news-1" class="img-news">
+                            <div class="px-3 pb-4">
+                                <h3>Why Do You Need Two Doses for Some COVID-19 Vaccines?</h3>
+                                <strong class="text-muted">07/04/21</strong>
+                                <p class="text-muted mb-4">
+                                    Some COVID-19 vaccines require two doses because the second dose helps to better
+                                    reinforce the immune response. Learn more…
+                                </p>
+                                <div class="box-arrow ml-auto"></div>
+                            </div>
+                            <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
                         </div>
                     </div>
                 </div>
@@ -176,36 +224,19 @@
                          class="mx-auto mb-3">
                     <p>April 20, 2021</p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, iure sed! Consequatur
-                        culpa ex
-                        itaque
-                        necessitatibus! Ad animi asperiores aut blanditiis iure labore nihil nobis, numquam optio sint
-                        veniam
-                        veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolore
-                        doloremque est
-                        fugit,
-                        iusto magnam quas reprehenderit similique sit voluptate. Aperiam consequatur deserunt, ducimus
-                        earum
-                        facilis
-                        maxime quo ratione sunt.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam, deleniti expedita facere
+                        hic in iusto laborum laudantium magni maxime molestiae nihil numquam obcaecati perspiciatis
+                        quisquam sint ullam vel voluptatum!
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolores eligendi eum labore
-                        molestias
-                        quia.
-                        Accusantium alias cum cumque dignissimos doloribus fuga laboriosam, nam nulla omnis, quo rerum
-                        sapiente
-                        voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi cumque deleniti
-                        dolor
-                        eos
-                        et eveniet laborum molestias nihil non obcaecati perferendis quam ratione reprehenderit sunt
-                        tempora
-                        veritatis vitae, voluptate.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolorem illo itaque rem
+                        rerum! Dolore dolorem dolores ducimus et, excepturi facilis harum impedit, mollitia obcaecati
+                        perspiciatis repellendus saepe voluptas voluptate.
                     </p>
                 </div>
             </div>
         </div>
-        <div id="date" class="py-80 border-bottom-black">
+        <div id="date" class="py-80">
             <h2 class="display-4 text-center">Save the Date</h2>
             <hr class="border-top-black mx-20">
             <div class="row px-20">
@@ -257,14 +288,14 @@
             </div>
             <hr class="border-top-black mx-20">
         </div>
-        <div id="vaccine" class="py-80 bg-blue text-center border-bottom-black">
+        <div id="vaccine" class="py-80 bg-blue text-center">
             <h2 class="display-1 text-uppercase my-0 text-white" id="get-your-vaccine">Get Your Vaccine</h2>
             <p class="font-weight-bold text-uppercase">Click Here</p>
         </div>
         <footer class="py-80">
             <div class="row">
                 <div class="col-lg-3 text-center text-lg-left">
-                    <img src="/images/logo-black.png" class="footer-logo" alt="logo" height="32">
+                    <img src="/svg/logo-black.svg" class="footer-logo" alt="logo" height="32">
                     <p class="text-muted mt-3 mb-0">&copy; 2021 SMK Nusantara</p>
                     <p class="text-muted my-0">All Rights Reserved</p>
                 </div>

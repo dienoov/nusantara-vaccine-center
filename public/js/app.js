@@ -2179,6 +2179,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
   mounted: function mounted() {
@@ -3409,6 +3440,31 @@ router.beforeEach(function (to, from, next) {
   \*********************************/
 /***/ (() => {
 
+var nav = document.querySelector("nav");
+
+var transNav = function transNav() {
+  var logo = nav.querySelector("img");
+  var links = nav.querySelectorAll(".nav-link");
+  var hamburger = nav.querySelector(".hamburger");
+
+  if (window.scrollY > 300) {
+    nav.classList.add("bg-light", "shadow-md");
+    logo.src = "/svg/logo-black.svg";
+    links.forEach(function (link) {
+      return link.style.color = "var(--nvc-black)";
+    });
+    hamburger.classList.add("black");
+  } else {
+    nav.classList.remove("bg-light", "shadow-md");
+    logo.src = "/svg/logo-white.svg";
+    links.forEach(function (link) {
+      return link.style.color = "var(--nvc-white)";
+    });
+    hamburger.classList.remove("black");
+  }
+};
+
+document.addEventListener("scroll", transNav);
 var navbarToggler = document.querySelector(".navbar-toggler");
 var navbarNav = document.querySelector(".navbar-nav");
 navbarToggler.addEventListener("click", function () {
@@ -21837,54 +21893,61 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "nav",
-      { staticClass: "navbar fixed-top bg-light border-bottom-black" },
-      [
-        _vm._m(0),
+  return _c("div", { staticClass: "home" }, [
+    _c("nav", { staticClass: "navbar fixed-top" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("ul", { staticClass: "navbar-nav" }, [
+        _c(
+          "li",
+          { staticClass: "nav-item" },
+          [
+            _c("router-link", { staticClass: "nav-link", attrs: { to: "/" } }, [
+              _vm._v("Home")
+            ])
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("ul", { staticClass: "navbar-nav" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _vm._m(4),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "nav-item" },
-            [
-              _c(
-                "router-link",
-                { staticClass: "nav-link-btn", attrs: { to: "/" } },
-                [_vm._v("Login")]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "nav-item" },
-            [
-              _c(
-                "router-link",
-                { staticClass: "nav-link-btn", attrs: { to: "/" } },
-                [_vm._v("Register")]
-              )
-            ],
-            1
-          )
-        ]),
+        _vm._m(1),
         _vm._v(" "),
-        _vm._m(6)
-      ]
-    ),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "nav-item" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "nav-link-btn", attrs: { to: "/" } },
+              [_vm._v("Login")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "nav-item" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "nav-link-btn", attrs: { to: "/" } },
+              [_vm._v("Register")]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(5)
+    ]),
+    _vm._v(" "),
+    _vm._m(6),
     _vm._v(" "),
     _vm._m(7),
     _vm._v(" "),
@@ -21900,11 +21963,9 @@ var render = function() {
     _vm._v(" "),
     _vm._m(13),
     _vm._v(" "),
-    _vm._m(14),
-    _vm._v(" "),
     _c("div", { staticClass: "sidebar-backdrop" }),
     _vm._v(" "),
-    _vm._m(15)
+    _vm._m(14)
   ])
 }
 var staticRenderFns = [
@@ -21913,17 +21974,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
-      _c("img", { attrs: { src: "/images/logo-black.png", alt: "logo" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "index.html" } }, [
-        _vm._v("Home")
-      ])
+      _c("img", { attrs: { src: "/svg/logo-white.svg", alt: "logo" } })
     ])
   },
   function() {
@@ -21978,290 +22029,293 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "slider border-bottom-black", attrs: { id: "slider" } },
-      [
-        _c("div", { staticClass: "slides" }, [
-          _c("div", { staticClass: "slide fade" }, [
-            _c("img", { attrs: { src: "/images/img1.jpg", alt: "img1" } }),
-            _vm._v(" "),
-            _c("div", { staticClass: "caption" }, [
-              _c("h2", [
-                _vm._v(
-                  "Boris Johnson faces battle to get vaccine passports through parliament"
-                )
-              ]),
+    return _c("div", { staticClass: "slider", attrs: { id: "slider" } }, [
+      _c("div", { staticClass: "slides" }, [
+        _c("div", { staticClass: "slide fade" }, [
+          _c("img", {
+            attrs: { src: "/images/pexels-cottonbro-3951355.jpg", alt: "img1" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "caption" }, [
+            _c("div", { staticClass: "container" }, [
+              _c("h2", [_vm._v("Protect Yourself From COVID-19")]),
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, molestias, nesciunt! Aut\n                        esse ex\n                        laboriosam quisquam rerum. Amet, aperiam consequuntur corporis dolores eum minima pariatur\n                        placeat\n                        qui quod quos, repellat.\n                    "
+                  "\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, amet architecto\n                            asperiores consectetur dolorem doloremque eaque hic ipsam laboriosam nam nemo numquam\n                            obcaecati provident quasi rem rerum, vel veritatis vitae.\n                        "
                 )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "detail text-right" }, [
-              _c("h4", { staticClass: "my-0" }, [_vm._v("April 5, 2021")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                _vm._v("4:30pm")
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "my-0" }, [_vm._v("Jakarta Selatan")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                _vm._v("DKI Jakarta, Indonesia")
               ])
             ])
-          ]),
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "slide fade" }, [
+          _c("img", {
+            attrs: { src: "/images/pexels-cottonbro-3951862.jpg", alt: "img2" }
+          }),
           _vm._v(" "),
-          _c("div", { staticClass: "slide fade" }, [
-            _c("img", { attrs: { src: "/images/img2.jpg", alt: "img2" } }),
-            _vm._v(" "),
-            _c("div", { staticClass: "caption" }, [
-              _c("h2", [
-                _vm._v("Modernas Covid vaccine rolled out in Nusantara")
-              ]),
+          _c("div", { staticClass: "caption" }, [
+            _c("div", { staticClass: "container" }, [
+              _c("h2", [_vm._v("Always Sanitize Your Hands")]),
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,\n                        eos,\n                        eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis\n                        placeat\n                        quisquam quo quod sapiente totam.\n                    "
+                  "\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum eius eum hic, molestias\n                            nobis non! Assumenda, culpa cum debitis dolorem exercitationem fuga laboriosam magni\n                            obcaecati quaerat quia quidem vel.\n                        "
                 )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "detail text-right" }, [
-              _c("h4", { staticClass: "my-0" }, [_vm._v("April 3, 2021")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                _vm._v("2:21pm")
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "my-0" }, [_vm._v("Semarang")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                _vm._v("Jawa Tengah, Indonesia")
               ])
             ])
-          ]),
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "slide fade" }, [
+          _c("img", {
+            attrs: { src: "/images/pexels-cottonbro-3951600.jpg", alt: "img3" }
+          }),
           _vm._v(" "),
-          _c("div", { staticClass: "slide fade" }, [
-            _c("img", { attrs: { src: "/images/img3.jpg", alt: "img3" } }),
-            _vm._v(" "),
-            _c("div", { staticClass: "caption" }, [
-              _c("h2", [
-                _vm._v(
-                  "A coronavirus vaccine developed by Chinas Sinovac has been found"
-                )
-              ]),
+          _c("div", { staticClass: "caption" }, [
+            _c("div", { staticClass: "container" }, [
+              _c("h2", [_vm._v("Stay-at-home order")]),
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti doloremque earum eius,\n                        eos,\n                        eveniet expedita facere facilis inventore iste nemo, neque officia officiis perferendis\n                        placeat\n                        quisquam quo quod sapiente totam.\n                    "
+                  "\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat incidunt molestiae\n                            nulla odio? Aut consequatur dolorum eius minus officia, repellat tenetur voluptas.\n                            Accusantium aliquam at consequatur error repellat sapiente vero?\n                        "
                 )
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "detail text-right" }, [
-              _c("h4", { staticClass: "my-0" }, [_vm._v("April 1, 2021")]),
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "slide fade" }, [
+          _c("img", {
+            attrs: { src: "/images/pexels-cottonbro-3952238.jpg", alt: "img3" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "caption" }, [
+            _c("div", { staticClass: "container" }, [
+              _c("h2", [_vm._v("When Is the End of COVID-19?")]),
               _vm._v(" "),
-              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                _vm._v("6:03am")
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "my-0" }, [_vm._v("Malang")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted mt-1 mb-3" }, [
-                _vm._v("Jawa Timur, Indonesia")
+              _c("p", { staticClass: "text-muted" }, [
+                _vm._v(
+                  "\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium, architecto\n                            aspernatur eius laudantium libero nam, natus nostrum optio quaerat qui quod rem\n                            repudiandae! Ab accusamus accusantium laborum voluptas voluptatibus.\n                        "
+                )
               ])
             ])
           ])
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "py-80 border-bottom-black", attrs: { id: "about" } },
-      [
+    return _c("div", { staticClass: "py-80", attrs: { id: "about" } }, [
+      _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-6" }, [
+            _c("img", {
+              staticClass: "img-about",
+              attrs: {
+                src: "/images/pexels-cottonbro-3952224.jpg",
+                alt: "img13"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "box" }, [
+              _c("h3", [_vm._v("Covid Vaccine Center")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "box-arrow" })
+            ])
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-lg-6" }, [
             _c("h2", { staticClass: "display-4 my-0" }, [_vm._v("About Us")]),
             _vm._v(" "),
             _c("p", { staticClass: "text-muted" }, [
               _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio quam\n                    qui\n                    sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt voluptatem!\n                    Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam\n                    mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?\n                "
+                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio\n                        quam\n                        qui\n                        sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt\n                        voluptatem!\n                        Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam\n                        mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?\n                    "
               )
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "text-muted" }, [
               _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse est\n                    facere\n                    facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi\n                    exercitationem\n                    explicabo facere non?\n                "
+                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse\n                        est\n                        facere\n                        facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi\n                        exercitationem\n                        explicabo facere non?\n                    "
               )
             ]),
             _vm._v(" "),
-            _c("button", { staticClass: "btn btn-light mt-3" }, [
-              _vm._v("Learn More...")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("img", {
-              staticClass: "img-about mb-3",
-              attrs: { src: "/images/img13.jpg", alt: "img13" }
-            }),
+            _c("div", { staticClass: "row no-gutters mt-4" }, [
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("h3", { staticClass: "display-4 m-0" }, [_vm._v("250+")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "m-0 text-muted" }, [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("h3", { staticClass: "display-4 m-0" }, [_vm._v("900+")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "m-0 text-muted" }, [
+                  _vm._v("Accusamus assumenda corporis ducimus.")
+                ])
+              ])
+            ]),
             _vm._v(" "),
-            _c("img", {
-              staticClass: "img-about",
-              attrs: { src: "/images/img14.jpg", alt: "img14" }
-            })
+            _c("div", { staticClass: "row no-gutters mt-3" }, [
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("h3", { staticClass: "display-4 m-0" }, [_vm._v("12")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "m-0 text-muted" }, [
+                  _vm._v("Assumenda labore, nesciunt.")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("h3", { staticClass: "display-4 m-0" }, [_vm._v("25")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "m-0 text-muted" }, [
+                  _vm._v("Quam quos saepe temporibus.")
+                ])
+              ])
+            ])
           ])
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "border-bottom-black", attrs: { id: "news" } },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-3 py-80 px-20 bg-blue" }, [
-            _c("h2", { staticClass: "display-4 text-center" }, [
-              _vm._v("Latest News")
-            ])
+    return _c("div", { staticClass: "py-80 bg-grey", attrs: { id: "news" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h2", { staticClass: "display-4" }, [_vm._v("Latest News")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row no-gutters wrapper" }, [
+          _c("div", { staticClass: "col-lg-6" }, [
+            _c("img", {
+              staticClass: "img-news-big",
+              attrs: { src: "/images/img2.jpg", alt: "news-1" }
+            })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-9 px-0" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("img", {
-                  staticClass: "img-news-big",
-                  attrs: {
-                    src: "/images/covid-19-and-tobacco-1---bi.png",
-                    alt: "news-1"
-                  }
-                })
-              ]),
+          _c("div", { staticClass: "col-lg-6 px-4" }, [
+            _c("h3", [
+              _vm._v(
+                "Johnson & Johnson COVID-19 Vaccine Is Back: What Experts Want You to Know"
+              )
+            ]),
+            _vm._v(" "),
+            _c("strong", { staticClass: "text-muted" }, [_vm._v("10/04/21")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted mb-4" }, [
+              _vm._v(
+                "\n                        U.S. federal health officials said on April 23 that vaccinations with Johnson & Johnson’s\n                        COVID-19 vaccine can restart, with…\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "box-arrow ml-auto" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row no-gutters mt-4" }, [
+          _c("div", { staticClass: "col-lg-4" }, [
+            _c("div", { staticClass: "wrapper" }, [
+              _c("img", {
+                staticClass: "img-news",
+                attrs: { src: "/images/img7.jpg", alt: "news-1" }
+              }),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("h3", [_vm._v("Covid-19 and Tobacco")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("April 10, 2021")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted" }, [
+              _c("div", { staticClass: "px-3 pb-4" }, [
+                _c("h3", [
                   _vm._v(
-                    "\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem dignissimos\n                            labore\n                            magnam ratione repudiandae sunt. Aliquid deserunt, eaque et molestiae nisi nobis quaerat\n                            quisquam tempore unde, velit vitae, voluptate!\n                        "
+                    "\n                                Pfizer Vaccine Still Very Effective Against Coronavirus Variant Despite Small Window\n                                of\n                                Risk\n                            "
                   )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "news-link",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "modal",
-                      "data-target": "#modal-news"
-                    }
-                  },
-                  [_vm._v("Read More...")]
-                )
+                _c("strong", { staticClass: "text-muted" }, [
+                  _vm._v("08/04/21")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-muted mb-4" }, [
+                  _vm._v(
+                    "\n                                The variant first detected in South Africa may evade some of the protection the\n                                Pfizer-BioNTech COVID-19 vaccine offers, but…\n                            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "box-arrow ml-auto" })
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-4" }, [
-                _c("img", {
-                  staticClass: "img-news",
-                  attrs: {
-                    src:
-                      "/images/new-normal-1---bie4b73458c9a84d4995ebef27544a3a0a.png",
-                    alt: "news-2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("h3", [_vm._v("How to Protect Yourself From Covid-19")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("April 8, 2021")]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "news-link",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "modal",
-                      "data-target": "#modal-news"
-                    }
-                  },
-                  [_vm._v("Read More...")]
-                )
-              ]),
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-4" }, [
+            _c("div", { staticClass: "wrapper" }, [
+              _c("img", {
+                staticClass: "img-news",
+                attrs: { src: "/images/img6.jpg", alt: "news-1" }
+              }),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4" }, [
-                _c("img", {
-                  staticClass: "img-news",
-                  attrs: {
-                    src:
-                      "/images/new-normal-2---bi082a3c1d6a2345f280eded572345272f.png",
-                    alt: "news-3"
-                  }
-                }),
+              _c("div", { staticClass: "px-3 pb-4" }, [
+                _c("h3", [
+                  _vm._v(
+                    "What to Expect from a COVID-19 Vaccine If You Have a Chronic Condition"
+                  )
+                ]),
                 _vm._v(" "),
-                _c("h3", [_vm._v("Stay Alert, Control the Virus, Save Lives")]),
+                _c("strong", { staticClass: "text-muted" }, [
+                  _vm._v("08/04/21")
+                ]),
                 _vm._v(" "),
-                _c("p", [_vm._v("April 7, 2021")]),
+                _c("p", { staticClass: "text-muted mb-4" }, [
+                  _vm._v(
+                    "\n                                Health experts widely believe the benefits of the vaccine outweigh the risks of a\n                                potential reaction or flare-up, since…\n                            "
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "news-link",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "modal",
-                      "data-target": "#modal-news"
-                    }
-                  },
-                  [_vm._v("Read More...")]
-                )
-              ]),
+                _c("div", { staticClass: "box-arrow ml-auto" })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-4" }, [
+            _c("div", { staticClass: "wrapper" }, [
+              _c("img", {
+                staticClass: "img-news",
+                attrs: { src: "/images/img3.jpg", alt: "news-1" }
+              }),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4" }, [
-                _c("img", {
-                  staticClass: "img-news",
-                  attrs: { src: "/images/new-normal-4---bi.png", alt: "news-4" }
-                }),
+              _c("div", { staticClass: "px-3 pb-4" }, [
+                _c("h3", [
+                  _vm._v(
+                    "Why Do You Need Two Doses for Some COVID-19 Vaccines?"
+                  )
+                ]),
                 _vm._v(" "),
-                _c("h3", [_vm._v("Wash Your Hands. Dont Get Sick.")]),
+                _c("strong", { staticClass: "text-muted" }, [
+                  _vm._v("07/04/21")
+                ]),
                 _vm._v(" "),
-                _c("p", [_vm._v("April 6, 2021")]),
+                _c("p", { staticClass: "text-muted mb-4" }, [
+                  _vm._v(
+                    "\n                                Some COVID-19 vaccines require two doses because the second dose helps to better\n                                reinforce the immune response. Learn more…\n                            "
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "news-link",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "modal",
-                      "data-target": "#modal-news"
-                    }
-                  },
-                  [_vm._v("Read More...")]
-                )
+                _c("div", { staticClass: "box-arrow ml-auto" })
               ])
             ])
           ])
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -22295,13 +22349,13 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, iure sed! Consequatur\n                    culpa ex\n                    itaque\n                    necessitatibus! Ad animi asperiores aut blanditiis iure labore nihil nobis, numquam optio sint\n                    veniam\n                    veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolore\n                    doloremque est\n                    fugit,\n                    iusto magnam quas reprehenderit similique sit voluptate. Aperiam consequatur deserunt, ducimus\n                    earum\n                    facilis\n                    maxime quo ratione sunt.\n                "
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam, deleniti expedita facere\n                    hic in iusto laborum laudantium magni maxime molestiae nihil numquam obcaecati perspiciatis\n                    quisquam sint ullam vel voluptatum!\n                "
             )
           ]),
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolores eligendi eum labore\n                    molestias\n                    quia.\n                    Accusantium alias cum cumque dignissimos doloribus fuga laboriosam, nam nulla omnis, quo rerum\n                    sapiente\n                    voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi cumque deleniti\n                    dolor\n                    eos\n                    et eveniet laborum molestias nihil non obcaecati perferendis quam ratione reprehenderit sunt\n                    tempora\n                    veritatis vitae, voluptate.\n                "
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolorem illo itaque rem\n                    rerum! Dolore dolorem dolores ducimus et, excepturi facilis harum impedit, mollitia obcaecati\n                    perspiciatis repellendus saepe voluptas voluptate.\n                "
             )
           ])
         ])
@@ -22312,71 +22366,67 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "py-80 border-bottom-black", attrs: { id: "date" } },
-      [
-        _c("h2", { staticClass: "display-4 text-center" }, [
-          _vm._v("Save the Date")
-        ]),
-        _vm._v(" "),
-        _c("hr", { staticClass: "border-top-black mx-20" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row px-20" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
-            _c("h3", [_vm._v("Sinovac Vaccine")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, alias architecto delectus\n                    dolore\n                    dolorem earum eius fugit in minus modi perferendis perspiciatis quia quo reprehenderit rerum,\n                    sint sit\n                    ullam voluptatem?\n                "
-              )
-            ])
-          ]),
+    return _c("div", { staticClass: "py-80", attrs: { id: "date" } }, [
+      _c("h2", { staticClass: "display-4 text-center" }, [
+        _vm._v("Save the Date")
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "border-top-black mx-20" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row px-20" }, [
+        _c("div", { staticClass: "col-lg-9" }, [
+          _c("h3", [_vm._v("Sinovac Vaccine")]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3" }, [
-            _c("p", { staticClass: "text-right" }, [_vm._v("April 12, 2021")])
+          _c("p", { staticClass: "text-muted" }, [
+            _vm._v(
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, alias architecto delectus\n                    dolore\n                    dolorem earum eius fugit in minus modi perferendis perspiciatis quia quo reprehenderit rerum,\n                    sint sit\n                    ullam voluptatem?\n                "
+            )
           ])
         ]),
         _vm._v(" "),
-        _c("hr", { staticClass: "border-top-black mx-20" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row px-20" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
-            _c("h3", [_vm._v("Moderna Vaccine")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur error, illum\n                    impedit\n                    ipsam maiores maxime, minus necessitatibus possimus quaerat quia quo quos repudiandae similique,\n                    vero.\n                    Error non rerum voluptas?\n                "
-              )
-            ])
-          ]),
+        _c("div", { staticClass: "col-lg-3" }, [
+          _c("p", { staticClass: "text-right" }, [_vm._v("April 12, 2021")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "border-top-black mx-20" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row px-20" }, [
+        _c("div", { staticClass: "col-lg-9" }, [
+          _c("h3", [_vm._v("Moderna Vaccine")]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3" }, [
-            _c("p", { staticClass: "text-right" }, [_vm._v("April 16, 2021")])
+          _c("p", { staticClass: "text-muted" }, [
+            _vm._v(
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur error, illum\n                    impedit\n                    ipsam maiores maxime, minus necessitatibus possimus quaerat quia quo quos repudiandae similique,\n                    vero.\n                    Error non rerum voluptas?\n                "
+            )
           ])
         ]),
         _vm._v(" "),
-        _c("hr", { staticClass: "border-top-black mx-20" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row px-20" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
-            _c("h3", [_vm._v("Sinovac Vaccine")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto blanditiis\n                    corporis dicta\n                    distinctio dolore illo illum itaque magnam molestias non nostrum placeat quasi quibusdam quis\n                    ratione\n                    recusandae saepe totam.\n                "
-              )
-            ])
-          ]),
+        _c("div", { staticClass: "col-lg-3" }, [
+          _c("p", { staticClass: "text-right" }, [_vm._v("April 16, 2021")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "border-top-black mx-20" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row px-20" }, [
+        _c("div", { staticClass: "col-lg-9" }, [
+          _c("h3", [_vm._v("Sinovac Vaccine")]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3" }, [
-            _c("p", { staticClass: "text-right" }, [_vm._v("April 17, 2021")])
+          _c("p", { staticClass: "text-muted" }, [
+            _vm._v(
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto blanditiis\n                    corporis dicta\n                    distinctio dolore illo illum itaque magnam molestias non nostrum placeat quasi quibusdam quis\n                    ratione\n                    recusandae saepe totam.\n                "
+            )
           ])
         ]),
         _vm._v(" "),
-        _c("hr", { staticClass: "border-top-black mx-20" })
-      ]
-    )
+        _c("div", { staticClass: "col-lg-3" }, [
+          _c("p", { staticClass: "text-right" }, [_vm._v("April 17, 2021")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "border-top-black mx-20" })
+    ])
   },
   function() {
     var _vm = this
@@ -22384,10 +22434,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass: "py-80 bg-blue text-center border-bottom-black",
-        attrs: { id: "vaccine" }
-      },
+      { staticClass: "py-80 bg-blue text-center", attrs: { id: "vaccine" } },
       [
         _c(
           "h2",
@@ -22413,7 +22460,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-lg-3 text-center text-lg-left" }, [
           _c("img", {
             staticClass: "footer-logo",
-            attrs: { src: "/images/logo-black.png", alt: "logo", height: "32" }
+            attrs: { src: "/svg/logo-black.svg", alt: "logo", height: "32" }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "text-muted mt-3 mb-0" }, [

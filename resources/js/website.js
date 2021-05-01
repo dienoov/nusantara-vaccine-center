@@ -1,3 +1,24 @@
+const nav = document.querySelector("nav");
+
+const transNav = () => {
+    const logo = nav.querySelector("img");
+    const links = nav.querySelectorAll(".nav-link");
+    const hamburger = nav.querySelector(".hamburger");
+    if (window.scrollY > 300) {
+        nav.classList.add("bg-light", "shadow-md");
+        logo.src = "/svg/logo-black.svg";
+        links.forEach((link) => link.style.color = "var(--nvc-black)");
+        hamburger.classList.add("black");
+    } else {
+        nav.classList.remove("bg-light", "shadow-md");
+        logo.src = "/svg/logo-white.svg";
+        links.forEach((link) => link.style.color = "var(--nvc-white)");
+        hamburger.classList.remove("black");
+    }
+};
+
+document.addEventListener("scroll", transNav);
+
 const navbarToggler = document.querySelector(".navbar-toggler");
 const navbarNav = document.querySelector(".navbar-nav");
 
