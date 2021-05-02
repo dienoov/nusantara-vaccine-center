@@ -1,9 +1,9 @@
 <template>
     <div class="home">
         <nav class="navbar fixed-top">
-            <a href="/" class="navbar-brand">
+            <router-link to="/" class="navbar-brand">
                 <img src="/svg/logo-white.svg" alt="logo">
-            </a>
+            </router-link>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <router-link to="/" class="nav-link">Home</router-link>
@@ -21,10 +21,10 @@
                     <a href="#vaccine" class="nav-link">Get Vaccine</a>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/" class="nav-link-btn">Login</router-link>
+                    <router-link to="/login" class="nav-link-btn">Login</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/" class="nav-link-btn">Register</router-link>
+                    <router-link to="/register" class="nav-link-btn">Register</router-link>
                 </li>
             </ul>
             <button class="navbar-toggler">
@@ -315,8 +315,10 @@
 export default {
     name: "Home",
     mounted() {
-        require("../website");
-    }
+        const script = document.createElement("script");
+        script.src = "/js/website.js";
+        document.querySelector(".home").appendChild(script);
+    },
 }
 </script>
 

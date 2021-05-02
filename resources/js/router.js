@@ -10,6 +10,9 @@ import Stock from "./components/admin/Stock";
 import Schedule from "./components/admin/Schedule";
 import Status from "./components/admin/Status";
 import User from "./components/admin/User";
+import Auth from "./components/auth/Auth";
+import UserLogin from "./components/auth/Login";
+import Register from "./components/auth/Register";
 
 const router = new VueRouter({
     mode: "history",
@@ -47,6 +50,16 @@ const router = new VueRouter({
             path: "user",
             component: User,
         }],
+    }, {
+        path: "/login",
+        component: Auth,
+        children: [{
+            path: "/login",
+            component: UserLogin,
+        }, {
+            path: "/register",
+            component: Register,
+        }]
     }],
 });
 
