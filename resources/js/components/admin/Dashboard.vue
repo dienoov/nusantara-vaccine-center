@@ -66,11 +66,35 @@
                         <h4>Status</h4>
                     </router-link>
                 </li>
+                <li>
+                    <router-link to="user">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <h4>User</h4>
+                    </router-link>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        <h4>Logout</h4>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="topbar">
             <div class="sidebar-toggler" :class="{active: sidebarActive}" @click="toggleSidebar">
                 <div class="hamburger-arrow"></div>
+            </div>
+            <div class="user">
+                <span>{{ user.username }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="32" fill="currentColor">
+                    <path fill-rule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                          clip-rule="evenodd"/>
+                </svg>
             </div>
         </div>
         <div class="content">
@@ -229,11 +253,24 @@ export default {
     transition-property: left, width;
     transition-duration: .5s;
     transition-timing-function: ease;
+    display: flex;
+    justify-content: space-between;
 }
 
 .sidebar.active ~ .topbar {
     left: 23rem;
     width: calc(100% - 24.5rem);
+}
+
+.topbar .user {
+    display: flex;
+    align-items: center;
+}
+
+.topbar .user span {
+    font-weight: 600;
+    font-family: Montserrat, sans-serif;
+    margin-right: .5rem;
 }
 
 .hamburger-arrow, .hamburger-arrow:before, .hamburger-arrow:after {

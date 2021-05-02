@@ -15,14 +15,14 @@ class AuthController extends Controller
             'nik' => 'required|size:16|unique:users',
             'name' => 'required|string',
             'password' => 'required|min:8|confirmed',
-            'dob' => 'required|date|date_format:d-m-Y',
+            'dob' => 'required|date|date_format:Y-m-d',
             'address' => 'required|string',
             'contact' => 'required|string',
         ]);
 
         $input = $request->only(['nik', 'name', 'address', 'contact']);
         $input['password'] = bcrypt($request->password);
-        $input['dob'] = Carbon::createFromFormat('d-m-Y', $request->dob)->toDateString();
+        $input['dob'] = Carbon::createFromFormat('Y-m-d', $request->dob)->toDateString();
 
         $user = User::create($input);
         $token = $user->createToken('nvc')->accessToken;

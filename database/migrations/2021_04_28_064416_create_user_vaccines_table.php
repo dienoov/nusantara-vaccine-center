@@ -15,7 +15,7 @@ class CreateUserVaccinesTable extends Migration
     {
         Schema::create('user_vaccines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('vaccine_id')->nullable()->constrained('vaccines');
             $table->foreignId('vac_status_id')->nullable()->constrained('vac_statuses');
             $table->timestamps();

@@ -35,4 +35,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function vac_center()
+    {
+        return $this->belongsTo(VacCenter::class);
+    }
+
+    public function user_vaccine()
+    {
+        return $this->hasOne(UserVaccine::class);
+    }
 }

@@ -57,7 +57,7 @@
                 <form class="form-admin" @submit.prevent="saveData">
                     <div>
                         <label for="vac_center_id">Vaccine Center</label>
-                        <select name="vac_center_id" id="vac_center_id" v-model="form.vac_center_id">
+                        <select name="vac_center_id" id="vac_center_id" v-model="form.vac_center_id" required>
                             <option value="" disabled selected>Select vaccine center</option>
                             <option v-for="vacCenter in vacCenters" :value="vacCenter.id">{{ vacCenter.name }}</option>
                         </select>
@@ -96,7 +96,7 @@ export default {
             schedules: [],
             modalActive: false,
             action: "",
-            vacCenter: [],
+            vacCenters: [],
         };
     },
     methods: {

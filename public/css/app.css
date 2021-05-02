@@ -1391,6 +1391,10 @@ form .btn {
     align-items: center;
 }
 
+.modal-admin .body {
+    margin-bottom: 1.5rem;
+}
+
 .modal-admin .close {
     font-size: 2.5rem;
 }
@@ -1420,6 +1424,10 @@ form .btn {
     min-width: 25%;
     max-width: 100%;
     min-height: 3rem;
+}
+
+.form-admin input[type=date]::-webkit-calendar-picker-indicator {
+    margin-right: -.25rem;
 }
 
 .form-admin input:focus, .form-admin textarea:focus, .form-admin select:focus {

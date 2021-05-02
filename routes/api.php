@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacCenterController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VacStatusController;
@@ -70,5 +71,11 @@ Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
         Route::post('', [VacStatusController::class, 'create']);
         Route::post('{id}', [VacStatusController::class, 'update']);
         Route::delete('{id}', [VacStatusController::class, 'delete']);
+    });
+
+    Route::prefix('user')->group(function () {
+        Route::get('', [UserController::class, 'all']);
+        Route::post('{id}', [UserController::class, 'update']);
+        Route::delete('{id}', [UserController::class, 'delete']);
     });
 });
