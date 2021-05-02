@@ -237,56 +237,25 @@
             </div>
         </div>
         <div id="date" class="py-80">
-            <h2 class="display-4 text-center">Save the Date</h2>
-            <hr class="border-top-black mx-20">
-            <div class="row px-20">
-                <div class="col-lg-9">
-                    <h3>Sinovac Vaccine</h3>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, alias architecto delectus
-                        dolore
-                        dolorem earum eius fugit in minus modi perferendis perspiciatis quia quo reprehenderit rerum,
-                        sint sit
-                        ullam voluptatem?
-                    </p>
-                </div>
-                <div class="col-lg-3">
-                    <p class="text-right">April 12, 2021</p>
-                </div>
-            </div>
-            <hr class="border-top-black mx-20">
-            <div class="row px-20">
-                <div class="col-lg-9">
-                    <h3>Moderna Vaccine</h3>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur error, illum
-                        impedit
-                        ipsam maiores maxime, minus necessitatibus possimus quaerat quia quo quos repudiandae similique,
-                        vero.
-                        Error non rerum voluptas?
-                    </p>
-                </div>
-                <div class="col-lg-3">
-                    <p class="text-right">April 16, 2021</p>
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg-6">
+                        <h2 class="display-4 my-0">Save the Date</h2>
+                        <p class="text-muted mb-4">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda neque quae
+                            ratione suscipit. Amet animi architecto autem commodi, esse et id itaque iure molestias nisi
+                            numquam quis quod vel!
+                        </p>
+                        <button class="btn">Schedule <span class="play"></span></button>
+                    </div>
+                    <div class="col-lg-6 dates my-4">
+                        <div>The Priory Center, 16/04/21</div>
+                        <div>City Care Center, 18/04/21</div>
+                        <div class="active">Royal Hospital, 21/04/21</div>
+                        <div>Riverside Park Stadium, 27/04/21</div>
+                    </div>
                 </div>
             </div>
-            <hr class="border-top-black mx-20">
-            <div class="row px-20">
-                <div class="col-lg-9">
-                    <h3>Sinovac Vaccine</h3>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto blanditiis
-                        corporis dicta
-                        distinctio dolore illo illum itaque magnam molestias non nostrum placeat quasi quibusdam quis
-                        ratione
-                        recusandae saepe totam.
-                    </p>
-                </div>
-                <div class="col-lg-3">
-                    <p class="text-right">April 17, 2021</p>
-                </div>
-            </div>
-            <hr class="border-top-black mx-20">
         </div>
         <div id="vaccine" class="py-80 bg-blue text-center">
             <h2 class="display-1 text-uppercase my-0 text-white" id="get-your-vaccine">Get Your Vaccine</h2>
@@ -320,13 +289,13 @@
                 </div>
                 <div class="col-lg-3 text-center text-lg-right">
                     <a href="#" class="social-media-icon">
-                        <img src="/svg/044-instagram.svg" alt="instagram" height="32">
+                        <img src="/svg/icons8-instagram.svg" alt="instagram" height="30">
                     </a>
                     <a href="#" class="social-media-icon">
-                        <img src="/svg/096-twitter.svg" alt="twitter" height="32">
+                        <img src="/svg/icons8-twitter.svg" alt="twitter" height="30">
                     </a>
                     <a href="#" class="social-media-icon">
-                        <img src="/svg/116-youtube.svg" alt="youtube" height="32">
+                        <img src="/svg/icons8-play-button.svg" alt="youtube" height="30">
                     </a>
                 </div>
             </div>

@@ -2179,37 +2179,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
   mounted: function mounted() {
@@ -22367,65 +22336,38 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "py-80", attrs: { id: "date" } }, [
-      _c("h2", { staticClass: "display-4 text-center" }, [
-        _vm._v("Save the Date")
-      ]),
-      _vm._v(" "),
-      _c("hr", { staticClass: "border-top-black mx-20" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row px-20" }, [
-        _c("div", { staticClass: "col-lg-9" }, [
-          _c("h3", [_vm._v("Sinovac Vaccine")]),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row no-gutters" }, [
+          _c("div", { staticClass: "col-lg-6" }, [
+            _c("h2", { staticClass: "display-4 my-0" }, [
+              _vm._v("Save the Date")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted mb-4" }, [
+              _vm._v(
+                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda neque quae\n                        ratione suscipit. Amet animi architecto autem commodi, esse et id itaque iure molestias nisi\n                        numquam quis quod vel!\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn" }, [
+              _vm._v("Schedule "),
+              _c("span", { staticClass: "play" })
+            ])
+          ]),
           _vm._v(" "),
-          _c("p", { staticClass: "text-muted" }, [
-            _vm._v(
-              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, alias architecto delectus\n                    dolore\n                    dolorem earum eius fugit in minus modi perferendis perspiciatis quia quo reprehenderit rerum,\n                    sint sit\n                    ullam voluptatem?\n                "
-            )
+          _c("div", { staticClass: "col-lg-6 dates my-4" }, [
+            _c("div", [_vm._v("The Priory Center, 16/04/21")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("City Care Center, 18/04/21")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "active" }, [
+              _vm._v("Royal Hospital, 21/04/21")
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Riverside Park Stadium, 27/04/21")])
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-3" }, [
-          _c("p", { staticClass: "text-right" }, [_vm._v("April 12, 2021")])
         ])
-      ]),
-      _vm._v(" "),
-      _c("hr", { staticClass: "border-top-black mx-20" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row px-20" }, [
-        _c("div", { staticClass: "col-lg-9" }, [
-          _c("h3", [_vm._v("Moderna Vaccine")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-muted" }, [
-            _vm._v(
-              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur error, illum\n                    impedit\n                    ipsam maiores maxime, minus necessitatibus possimus quaerat quia quo quos repudiandae similique,\n                    vero.\n                    Error non rerum voluptas?\n                "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-3" }, [
-          _c("p", { staticClass: "text-right" }, [_vm._v("April 16, 2021")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr", { staticClass: "border-top-black mx-20" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row px-20" }, [
-        _c("div", { staticClass: "col-lg-9" }, [
-          _c("h3", [_vm._v("Sinovac Vaccine")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-muted" }, [
-            _vm._v(
-              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto blanditiis\n                    corporis dicta\n                    distinctio dolore illo illum itaque magnam molestias non nostrum placeat quasi quibusdam quis\n                    ratione\n                    recusandae saepe totam.\n                "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-3" }, [
-          _c("p", { staticClass: "text-right" }, [_vm._v("April 17, 2021")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr", { staticClass: "border-top-black mx-20" })
+      ])
     ])
   },
   function() {
@@ -22514,9 +22456,9 @@ var staticRenderFns = [
           _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
             _c("img", {
               attrs: {
-                src: "/svg/044-instagram.svg",
+                src: "/svg/icons8-instagram.svg",
                 alt: "instagram",
-                height: "32"
+                height: "30"
               }
             })
           ]),
@@ -22524,9 +22466,9 @@ var staticRenderFns = [
           _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
             _c("img", {
               attrs: {
-                src: "/svg/096-twitter.svg",
+                src: "/svg/icons8-twitter.svg",
                 alt: "twitter",
-                height: "32"
+                height: "30"
               }
             })
           ]),
@@ -22534,9 +22476,9 @@ var staticRenderFns = [
           _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
             _c("img", {
               attrs: {
-                src: "/svg/116-youtube.svg",
+                src: "/svg/icons8-play-button.svg",
                 alt: "youtube",
-                height: "32"
+                height: "30"
               }
             })
           ])

@@ -162,9 +162,10 @@ p {
 
 .nav-link-btn {
     background-color: var(--nvc-light-blue);
-    padding: .5rem 1.5rem;
+    padding: .75rem 2rem;
     border-radius: 2rem;
     transition: background-color 150ms ease;
+    font-weight: 600;
 }
 
 .nav-link-btn:hover {
@@ -371,7 +372,7 @@ p {
     height: .625rem;
     background: none;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 2px solid white;
     transition-property: background-color;
     transition-duration: .3s;
     transition-timing-function: ease;
@@ -418,11 +419,27 @@ p {
     margin-bottom: 1rem;
 }
 
-.pb-3 {
+.mt-4, .my-4 {
+    margin-top: 2rem;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 2rem;
+}
+
+.pt-3, .py-3 {
+    padding-top: 1rem;
+}
+
+.pt-4, .py-4 {
+    padding-top: 2rem;
+}
+
+.pb-3, .py-3 {
     padding-bottom: 1rem;
 }
 
-.pb-4 {
+.pb-4, .py-4 {
     padding-bottom: 2rem;
 }
 
@@ -645,15 +662,15 @@ p {
         height: 20rem;
         width: 50%;
     }
+
+    #about {
+        background: var(--nvc-white);
+    }
 }
 
 @media screen and (max-width: 480px) {
     .img-about {
         width: 100%;
-    }
-
-    #about {
-        background: var(--nvc-white);
     }
 
     #about .box {
@@ -788,7 +805,7 @@ p {
     padding-left: .5rem;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1140px) {
     #news .row.no-gutters {
         padding: 1.25rem;
     }
@@ -797,7 +814,9 @@ p {
         padding-left: 1.25rem;
         padding-right: 1.25rem;
     }
+}
 
+@media screen and (max-width: 992px) {
     #news .px-4, #news .px-3 {
         padding-right: .5rem;
         padding-left: .5rem;
@@ -816,6 +835,100 @@ p {
     color: var(--nvc-blue);
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: white;
+}
+
+#date {
+    overflow-x: hidden;
+}
+
+#date h2:before {
+    content: "Schedule";
+    margin-bottom: -1.25rem;
+    overflow-x: hidden;
+    white-space: nowrap;
+    display: block;
+    width: 20rem;
+    font-size: 4rem;
+    background: linear-gradient(to right, var(--nvc-grey), transparent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#date .col-lg-6:first-child {
+    position: relative;
+}
+
+#date .col-lg-6:first-child:before {
+    content: "Vaccination Schedule";
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    left: -14rem;
+    text-align: right;
+    padding-right: 5rem;
+    font-weight: bold;
+    font-family: Montserrat, sans-serif;
+    color: var(--nvc-light-blue);
+    transform: rotate(-90deg) translate(-50%);
+}
+
+#date .btn {
+    background-color: var(--nvc-light-blue);
+    padding: .75rem 2rem;
+    border-radius: 2rem;
+    transition: background-color 150ms ease;
+    font-size: 100%;
+    color: var(--nvc-white);
+    text-transform: uppercase;
+}
+
+#date .play {
+    width: .75rem;
+    height: .75rem;
+    margin-left: .5rem;
+    display: inline-block;
+    border-width: .375rem 0 .375rem .75rem;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--nvc-white);
+}
+
+#date .btn:hover {
+    background-color: #07c5f1;
+}
+
+.dates:before, .dates:after {
+    content: "v";
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    display: flex;
+    margin-right: -.25rem;
+    justify-content: flex-end;
+}
+
+.dates:before {
+    justify-content: flex-start;
+    transform: rotate(.5turn);
+}
+
+.dates div {
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    text-align: right;
+    padding: 2rem;
+    color: rgba(7, 24, 56, .8);
+    border-right: 1px solid rgba(7, 24, 56, .8);
+}
+
+.dates .active {
+    color: var(--nvc-black);
+    font-weight: 600;
+    border-right: 4px solid var(--nvc-black);
+}
+
+@media screen and (max-width: 1140px) {
+    #date .row.no-gutters {
+        padding: 1.25rem;
+    }
 }
 
 #vaccine {
@@ -868,6 +981,7 @@ footer {
 .social-media-icon {
     margin: .5rem;
     display: inline-block;
+    color: var(--nvc-black);
 }
 
 @media screen and (min-width: 992px) {
