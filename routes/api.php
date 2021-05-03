@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\UserController;
@@ -39,6 +40,9 @@ Route::middleware(['auth:api', 'scope:user'])->group(function () {
         Route::get('vac-center', [VacCenterController::class, 'all']);
     });
 });
+
+Route::get('account/registration/{name}/{id}', [DocumentController::class, 'registration']);
+Route::get('account/vaccination/{name}/{id}', [DocumentController::class, 'vaccination']);
 
 Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
     Route::get('scope/admin', function (Request $request) {

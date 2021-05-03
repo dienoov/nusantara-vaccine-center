@@ -3692,7 +3692,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Document"
+  name: "Document",
+  methods: {
+    registration: function registration() {
+      var user = JSON.parse(localStorage.getItem("user"));
+      window.open("/api/account/registration/".concat(user.name.toLowerCase().replaceAll(" ", "-"), "/").concat(user.id));
+    },
+    vaccination: function vaccination() {
+      var user = JSON.parse(localStorage.getItem("user"));
+      window.open("/api/account/vaccination/".concat(user.name.toLowerCase().replaceAll(" ", "-"), "/").concat(user.id));
+    }
+  }
 });
 
 /***/ }),
@@ -26939,34 +26949,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h4", { staticClass: "mt-0 mb-4" }, [
-        _vm._v("Download or print your vaccination document")
+  return _c("div", [
+    _c("h4", { staticClass: "mt-0 mb-4" }, [
+      _vm._v("Download or print your vaccination document")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form" }, [
+      _c("div", [
+        _c(
+          "button",
+          {
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.registration($event)
+              }
+            }
+          },
+          [_vm._v("Registration Proof")]
+        )
       ]),
       _vm._v(" "),
-      _c("form", { staticClass: "form" }, [
-        _c("div", [
-          _c("button", { attrs: { type: "submit" } }, [
-            _vm._v("Registration Proof")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("button", { attrs: { type: "submit" } }, [
-            _vm._v("Vaccination Card")
-          ])
-        ])
+      _c("div", [
+        _c(
+          "button",
+          {
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.vaccination($event)
+              }
+            }
+          },
+          [_vm._v("Vaccination Card")]
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
