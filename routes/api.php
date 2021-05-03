@@ -27,8 +27,17 @@ Route::prefix('auth')->group(function () {
     Route::post('admin', [AuthController::class, 'admin']);
 });
 
-Route::middleware('auth:api')->get('scope/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['auth:api', 'scope:user'])->group(function () {
+    Route::get('scope/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::prefix('account')->group(function () {
+        Route::post('update', [UserController::class, 'selfUpdate']);
+        Route::post('password', [UserController::class, 'changePassword']);
+        Route::post('vac-center', [UserController::class, 'vacCenter']);
+        Route::get('vac-center', [VacCenterController::class, 'all']);
+    });
 });
 
 Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {

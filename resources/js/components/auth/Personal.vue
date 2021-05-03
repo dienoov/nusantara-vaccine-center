@@ -1,7 +1,6 @@
 <template>
-    <div class="bg-light my-3 p-4 w-lg-40">
-        <h4 class="mt-0 mb-4">Create your account</h4>
-        <form class="form" @submit.prevent="register">
+    <div><h4 class="mt-0 mb-4">Personal information</h4>
+        <form class="form" @submit.prevent="saveData">
             <div>
                 <label for="nik">NIK</label>
                 <input type="text" name="nik" id="nik" v-model="form.nik" placeholder="NIK" minlength="16"
@@ -24,20 +23,9 @@
                 <label for="contact">Contact</label>
                 <input type="text" name="contact" id="contact" v-model="form.contact" placeholder="Contact" required>
             </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" v-model="form.password" placeholder="Password"
-                       minlength="8" required>
-            </div>
-            <div>
-                <label for="password_confirmation">Password Confirmation</label>
-                <input type="password" name="password_confirmation" id="password_confirmation"
-                       v-model="form.password_confirmation" placeholder="Password confirmation" minlength="8" required>
-                <p>{{ error.password }}</p>
-            </div>
             <p>{{ error.form }}</p>
             <div>
-                <button type="submit">Register</button>
+                <button type="submit">Save</button>
             </div>
         </form>
     </div>
@@ -45,7 +33,7 @@
 
 <script>
 export default {
-    name: "Register",
+    name: "Personal",
     data() {
         return {
             form: {
@@ -54,31 +42,41 @@ export default {
                 dob: "",
                 address: "",
                 contact: "",
-                password: "",
-                password_confirmation: "",
             },
             error: {
-                password: "",
                 nik: "",
-                form: "",
+                form: ""
             },
         };
     },
     methods: {
-        register() {
-            this.$http.post("/api/auth/register", this.form)
-                .then(({data}) => {
-                    localStorage.setItem("token", `Bearer ${data.token}`);
-                    localStorage.setItem("role", "user");
-                    localStorage.setItem("user", JSON.stringify(data.user));
-                    this.$router.push("/");
-                })
+        saveData() {
+            this.$http.post("/api/account/update", this.form)
+                .then(() => this.loadData)
                 .catch((err) => {
-                    this.error.password = err.response.data.errors.password[0];
                     this.error.nik = err.response.data.errors.nik[0];
                     this.error.form = err.response.data.message;
                 });
-        }
+        },
+        loadData() {
+            this.$http.get("/api/scope/user")
+                .then(({data}) => {
+                    this.form.nik = data.nik;
+                    this.form.name = data.name;
+                    this.form.dob = data.dob;
+                    this.form.address = data.address;
+                    this.form.contact = data.contact;
+                })
+                .catch(() => {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("role");
+                    localStorage.removeItem("user");
+                    this.$router.push("/login");
+                });
+        },
+    },
+    mounted() {
+        this.loadData();
     }
 }
 </script>

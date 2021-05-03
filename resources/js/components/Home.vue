@@ -30,7 +30,7 @@
                     <a href="#" class="nav-link">{{ user.name }}</a>
                     <ul class="dropdown">
                         <li>
-                            <router-link to="/">My Account</router-link>
+                            <router-link to="/account">My Account</router-link>
                         </li>
                         <li>
                             <a href="#" @click="logout">Sign Out</a>

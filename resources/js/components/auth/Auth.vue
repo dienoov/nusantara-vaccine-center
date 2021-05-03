@@ -4,22 +4,20 @@
             <router-link to="/">
                 <img src="/svg/logo-black.svg" alt="logo" height="24">
             </router-link>
-            <div v-if="login">
+            <div v-if="action === '/login'">
                 <span>Don't have an account?</span>
                 <router-link to="/register" class="text-light-blue px-2">
                     Register
                 </router-link>
             </div>
-            <div v-else>
+            <div v-else-if="action === '/register'">
                 <span>Already have an account?</span>
                 <router-link to="/login" class="text-light-blue px-2">
                     Sign In
                 </router-link>
             </div>
         </nav>
-        <div class="bg-light my-3 p-4 w-lg-40">
-            <router-view></router-view>
-        </div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -28,12 +26,12 @@ export default {
     name: "Layout",
     data() {
         return {
-            login: this.$router.currentRoute.path === "/login",
+            action: this.$router.currentRoute.path,
         };
     },
     watch: {
         $route() {
-            this.login = this.$router.currentRoute.path === "/login";
+            this.action = this.$router.currentRoute.path;
         },
     },
 }

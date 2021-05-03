@@ -36,7 +36,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->update($input);
 
-        $second_input = $request->only(['vaccine_id','vac_status_id']);
+        $second_input = $request->only(['vaccine_id', 'vac_status_id']);
 
         $user_vaccine = UserVaccine::where('user_id', $id)->first();
         $user_vaccine->update($second_input);
@@ -51,5 +51,69 @@ class UserController extends Controller
     {
         User::destroy($id);
 
+    }
+
+    public function selfUpdate(Request $request)
+    {
+        $request->validate([
+            'nik' => "required|size:16|unique:users,id,{$request->user()->id}",
+            'name' => 'required|string',
+            'dob' => 'required|date|date_format:Y-m-d',
+            'address' => 'required|string',
+            'contact' => 'required|string',
+        ]);
+
+        $input = $request->only(['nik', 'name', 'address', 'contact']);
+        $input['dob'] = Carbon::createFromFormat('Y-m-d', $request->dob)->toDateString();
+
+        $user = User::find($request->user()->id);
+        $user->update($input);
+
+        return response([
+            'user' => $user,
+            'message' => 'Success',
+        ]);
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = User::find($request->user()->id);
+
+        if (!password_verify($request->old_password, $user->password))
+            return response([
+                'message' => 'Old password does not match',
+            ], 401);
+
+        $input['password'] = bcrypt($request->password);
+
+        $user->update($input);
+
+        return response([
+            'user' => $user,
+            'message' => 'Success',
+        ]);
+    }
+
+    public function vacCenter(Request $request)
+    {
+        $request->validate([
+            'vac_center_id' => 'required|exists:vac_centers,id',
+        ]);
+
+        $user = User::find($request->user()->id);
+
+        $input = $request->only(['vac_center_id']);
+
+        $user->update($input);
+
+        return response([
+            'user' => $user,
+            'message' => 'Success',
+        ]);
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-light my-3 p-4 w-lg-40">
         <h4 class="mt-0 mb-4">Sign in to your account</h4>
         <form class="form" @submit.prevent="login">
             <div>

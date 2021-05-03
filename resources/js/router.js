@@ -13,6 +13,11 @@ import User from "./components/admin/User";
 import Auth from "./components/auth/Auth";
 import UserLogin from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import Account from "./components/auth/Account";
+import Personal from "./components/auth/Personal";
+import Password from "./components/auth/Password";
+import Document from "./components/auth/Document";
+import UserVacCenter from "./components/auth/VacCenter";
 
 const router = new VueRouter({
     mode: "history",
@@ -59,7 +64,26 @@ const router = new VueRouter({
         }, {
             path: "/register",
             component: Register,
-        }]
+        }, {
+            path: "/account",
+            component: Account,
+            meta: {
+                requireAuth: true,
+            },
+            children: [{
+                path: "",
+                component: Personal,
+            }, {
+                path: "password",
+                component: Password,
+            }, {
+                path: "document",
+                component: Document,
+            }, {
+                path: "vac-center",
+                component: UserVacCenter,
+            }],
+        }],
     }],
 });
 
