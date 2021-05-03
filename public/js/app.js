@@ -25545,9 +25545,18 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(user.contact))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.vac_center.name))]),
+              _c("td", [
+                _vm._v(_vm._s(user.vac_center && user.vac_center.name))
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.user_vaccine.vac_status.status))]),
+              _c("td", [
+                _vm._v(
+                  _vm._s(
+                    user.user_vaccine.vac_status &&
+                      user.user_vaccine.vac_status.status
+                  )
+                )
+              ]),
               _vm._v(" "),
               _c("td", [
                 _c(

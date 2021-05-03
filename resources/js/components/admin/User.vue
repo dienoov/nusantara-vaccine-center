@@ -20,8 +20,8 @@
                     <td>{{ user.nik }}</td>
                     <td>{{ user.name }}</td>
                     <td>{{ user.contact }}</td>
-                    <td>{{ user.vac_center.name }}</td>
-                    <td>{{ user.user_vaccine.vac_status.status }}</td>
+                    <td>{{ user.vac_center && user.vac_center.name }}</td>
+                    <td>{{ user.user_vaccine.vac_status && user.user_vaccine.vac_status.status }}</td>
                     <td>
                         <button class="btn" @click="updateData(user)">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" height="20"
