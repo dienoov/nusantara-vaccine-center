@@ -29,6 +29,8 @@ Route::prefix('auth')->group(function () {
     Route::post('admin', [AuthController::class, 'admin']);
 });
 
+Route::get('latest', [NewsController::class, 'latest']);
+
 Route::middleware(['auth:api', 'scope:user'])->group(function () {
     Route::get('scope/user', function (Request $request) {
         return $request->user();

@@ -2134,60 +2134,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
   data: function data() {
     return {
-      user: false
+      user: false,
+      news: [],
+      modal: {
+        title: "",
+        image: "",
+        body: "",
+        updated_at: ""
+      }
     };
   },
   methods: {
@@ -2208,6 +2166,24 @@ __webpack_require__.r(__webpack_exports__);
     },
     getVaccine: function getVaccine() {
       this.$router.push("/account/vac-center");
+    },
+    loadNews: function loadNews() {
+      var _this2 = this;
+
+      this.$http.get("/api/latest").then(function (_ref2) {
+        var data = _ref2.data;
+        return _this2.news = data.news;
+      });
+    },
+    newsDate: function newsDate(date) {
+      date = date.substr(0, 10).split('-');
+      return "".concat(date[2], "/").concat(date[1], "/").concat(date[0].substr(0, 2));
+    },
+    toggleModal: function toggleModal() {
+      var news = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var display = this.$refs.modal.style.display;
+      this.$refs.modal.style.display = display === "block" ? "none" : "block";
+      if (news) this.modal = news;
     }
   },
   mounted: function mounted() {
@@ -2215,6 +2191,7 @@ __webpack_require__.r(__webpack_exports__);
     script.src = "/js/website.js";
     document.querySelector(".home").appendChild(script);
     this.loadUser();
+    this.loadNews();
   }
 });
 
@@ -23783,11 +23760,146 @@ var render = function() {
     _vm._v(" "),
     _vm._m(6),
     _vm._v(" "),
+    _c("div", { staticClass: "py-80 bg-grey", attrs: { id: "news" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h2", { staticClass: "display-4" }, [_vm._v("Latest News")]),
+        _vm._v(" "),
+        _vm.news[0]
+          ? _c(
+              "div",
+              {
+                staticClass: "row no-gutters wrapper",
+                on: {
+                  click: function($event) {
+                    return _vm.toggleModal(_vm.news[0])
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "col-lg-6" }, [
+                  _c("img", {
+                    staticClass: "img-news-big",
+                    attrs: {
+                      src: "/images/" + _vm.news[0].image,
+                      alt: _vm.news[0].image
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 px-4" }, [
+                  _c("h3", [_vm._v(_vm._s(_vm.news[0].title))]),
+                  _vm._v(" "),
+                  _c("strong", { staticClass: "text-muted" }, [
+                    _vm._v(_vm._s(_vm.newsDate(_vm.news[0].updated_at)))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", {
+                    staticClass: "text-muted mb-4",
+                    domProps: {
+                      innerHTML: _vm._s(_vm.news[0].body.substr(0, 160) + "…")
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-arrow ml-auto" })
+                ])
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row no-gutters mt-4" },
+          [
+            _vm._l(_vm.news, function(item, index) {
+              return [
+                index !== 0
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-lg-4",
+                        on: {
+                          click: function($event) {
+                            return _vm.toggleModal(item)
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "wrapper" }, [
+                          _c("img", {
+                            staticClass: "img-news",
+                            attrs: {
+                              src: "/images/" + item.image,
+                              alt: item.image
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "px-3 pb-4" }, [
+                            _c("h3", [_vm._v(_vm._s(item.title))]),
+                            _vm._v(" "),
+                            _c("strong", { staticClass: "text-muted" }, [
+                              _vm._v(
+                                _vm._s(_vm.newsDate(_vm.news[0].updated_at))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", {
+                              staticClass: "text-muted mb-4",
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  item.body.substr(0, 120) + "…"
+                                )
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "box-arrow ml-auto" })
+                          ])
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              ]
+            })
+          ],
+          2
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { ref: "modal", staticClass: "modal", attrs: { id: "modal-news" } },
+      [
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "head" }, [
+              _c("h2", { staticClass: "title display-4 m-0 mb-4" }, [
+                _vm._v(_vm._s(_vm.modal.title))
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "close", on: { click: _vm.toggleModal } },
+                [_vm._v("×")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "body" }, [
+              _c("img", {
+                staticClass: "mb-3",
+                attrs: {
+                  src: "/images/" + _vm.modal.image,
+                  alt: _vm.modal.image
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { domProps: { innerHTML: _vm._s(_vm.modal.body) } })
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
     _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
     _vm._v(" "),
     _c(
       "div",
@@ -23812,13 +23924,13 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _vm._m(10),
+    _vm._m(8),
     _vm._v(" "),
-    _vm._m(11),
+    _vm._m(9),
     _vm._v(" "),
     _c("div", { staticClass: "sidebar-backdrop" }),
     _vm._v(" "),
-    _vm._m(12)
+    _vm._m(10)
   ])
 }
 var staticRenderFns = [
@@ -24031,177 +24143,6 @@ var staticRenderFns = [
                 ])
               ])
             ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "py-80 bg-grey", attrs: { id: "news" } }, [
-      _c("div", { staticClass: "container" }, [
-        _c("h2", { staticClass: "display-4" }, [_vm._v("Latest News")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row no-gutters wrapper" }, [
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("img", {
-              staticClass: "img-news-big",
-              attrs: { src: "/images/img2.jpg", alt: "news-1" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6 px-4" }, [
-            _c("h3", [
-              _vm._v(
-                "Johnson & Johnson COVID-19 Vaccine Is Back: What Experts Want You to Know"
-              )
-            ]),
-            _vm._v(" "),
-            _c("strong", { staticClass: "text-muted" }, [_vm._v("10/04/21")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted mb-4" }, [
-              _vm._v(
-                "\n                        U.S. federal health officials said on April 23 that vaccinations with Johnson & Johnson’s\n                        COVID-19 vaccine can restart, with…\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "box-arrow ml-auto" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row no-gutters mt-4" }, [
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("div", { staticClass: "wrapper" }, [
-              _c("img", {
-                staticClass: "img-news",
-                attrs: { src: "/images/img7.jpg", alt: "news-1" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "px-3 pb-4" }, [
-                _c("h3", [
-                  _vm._v(
-                    "\n                                Pfizer Vaccine Still Very Effective Against Coronavirus Variant Despite Small Window\n                                of\n                                Risk\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("strong", { staticClass: "text-muted" }, [
-                  _vm._v("08/04/21")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mb-4" }, [
-                  _vm._v(
-                    "\n                                The variant first detected in South Africa may evade some of the protection the\n                                Pfizer-BioNTech COVID-19 vaccine offers, but…\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "box-arrow ml-auto" })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("div", { staticClass: "wrapper" }, [
-              _c("img", {
-                staticClass: "img-news",
-                attrs: { src: "/images/img6.jpg", alt: "news-1" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "px-3 pb-4" }, [
-                _c("h3", [
-                  _vm._v(
-                    "What to Expect from a COVID-19 Vaccine If You Have a Chronic Condition"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("strong", { staticClass: "text-muted" }, [
-                  _vm._v("08/04/21")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mb-4" }, [
-                  _vm._v(
-                    "\n                                Health experts widely believe the benefits of the vaccine outweigh the risks of a\n                                potential reaction or flare-up, since…\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "box-arrow ml-auto" })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("div", { staticClass: "wrapper" }, [
-              _c("img", {
-                staticClass: "img-news",
-                attrs: { src: "/images/img3.jpg", alt: "news-1" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "px-3 pb-4" }, [
-                _c("h3", [
-                  _vm._v(
-                    "Why Do You Need Two Doses for Some COVID-19 Vaccines?"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("strong", { staticClass: "text-muted" }, [
-                  _vm._v("07/04/21")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-muted mb-4" }, [
-                  _vm._v(
-                    "\n                                Some COVID-19 vaccines require two doses because the second dose helps to better\n                                reinforce the immune response. Learn more…\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "box-arrow ml-auto" })
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal", attrs: { id: "modal-news" } }, [
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "head" }, [
-          _c("h3", { staticClass: "title" }, [
-            _vm._v("How to Protect Yourself From Covid-19")
-          ]),
-          _vm._v(" "),
-          _c(
-            "span",
-            { staticClass: "close", attrs: { "data-dismiss": "modal" } },
-            [_vm._v("×")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "body" }, [
-          _c("img", {
-            staticClass: "mx-auto mb-3",
-            attrs: {
-              src:
-                "/images/new-normal-1---bie4b73458c9a84d4995ebef27544a3a0a.png",
-              alt: "new-normal"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("April 20, 2021")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam, deleniti expedita facere\n                    hic in iusto laborum laudantium magni maxime molestiae nihil numquam obcaecati perspiciatis\n                    quisquam sint ullam vel voluptatum!\n                "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolorem illo itaque rem\n                    rerum! Dolore dolorem dolores ducimus et, excepturi facilis harum impedit, mollitia obcaecati\n                    perspiciatis repellendus saepe voluptas voluptate.\n                "
-            )
           ])
         ])
       ])

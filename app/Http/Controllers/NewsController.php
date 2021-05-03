@@ -16,6 +16,14 @@ class NewsController extends Controller
         ]);
     }
 
+    public function latest()
+    {
+        return response([
+            'news' => News::limit(4)->get(),
+            'message' => 'Success',
+        ]);
+    }
+
     public function create(Request $request)
     {
         $request->validate([

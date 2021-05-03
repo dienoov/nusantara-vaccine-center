@@ -149,94 +149,45 @@
         <div id="news" class="py-80 bg-grey">
             <div class="container">
                 <h2 class="display-4">Latest News</h2>
-                <div class="row no-gutters wrapper">
+                <div class="row no-gutters wrapper" v-if="news[0]" @click="toggleModal(news[0])">
                     <div class="col-lg-6">
-                        <img src="/images/img2.jpg" alt="news-1" class="img-news-big">
+                        <img :src="`/images/${news[0].image}`" :alt="news[0].image" class="img-news-big">
                     </div>
                     <div class="col-lg-6 px-4">
-                        <h3>Johnson & Johnson COVID-19 Vaccine Is Back: What Experts Want You to Know</h3>
-                        <strong class="text-muted">10/04/21</strong>
-                        <p class="text-muted mb-4">
-                            U.S. federal health officials said on April 23 that vaccinations with Johnson & Johnson’s
-                            COVID-19 vaccine can restart, with…
-                        </p>
+                        <h3>{{ news[0].title }}</h3>
+                        <strong class="text-muted">{{ newsDate(news[0].updated_at) }}</strong>
+                        <p class="text-muted mb-4" v-html="news[0].body.substr(0, 160) + '…'"></p>
                         <div class="box-arrow ml-auto"></div>
-                        <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
                     </div>
                 </div>
                 <div class="row no-gutters mt-4">
-                    <div class="col-lg-4">
-                        <div class="wrapper">
-                            <img src="/images/img7.jpg" alt="news-1" class="img-news">
-                            <div class="px-3 pb-4">
-                                <h3>
-                                    Pfizer Vaccine Still Very Effective Against Coronavirus Variant Despite Small Window
-                                    of
-                                    Risk
-                                </h3>
-                                <strong class="text-muted">08/04/21</strong>
-                                <p class="text-muted mb-4">
-                                    The variant first detected in South Africa may evade some of the protection the
-                                    Pfizer-BioNTech COVID-19 vaccine offers, but…
-                                </p>
-                                <div class="box-arrow ml-auto"></div>
+                    <template v-for="(item, index) in news">
+                        <div class="col-lg-4" v-if="index !== 0" @click="toggleModal(item)">
+                            <div class="wrapper">
+                                <img :src="`/images/${item.image}`" :alt="item.image" class="img-news">
+                                <div class="px-3 pb-4">
+                                    <h3>{{ item.title }}</h3>
+                                    <strong class="text-muted">{{ newsDate(news[0].updated_at) }}</strong>
+                                    <p class="text-muted mb-4" v-html="item.body.substr(0, 120) + '…'"></p>
+                                    <div class="box-arrow ml-auto"></div>
+                                </div>
                             </div>
-                            <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="wrapper">
-                            <img src="/images/img6.jpg" alt="news-1" class="img-news">
-                            <div class="px-3 pb-4">
-                                <h3>What to Expect from a COVID-19 Vaccine If You Have a Chronic Condition</h3>
-                                <strong class="text-muted">08/04/21</strong>
-                                <p class="text-muted mb-4">
-                                    Health experts widely believe the benefits of the vaccine outweigh the risks of a
-                                    potential reaction or flare-up, since…
-                                </p>
-                                <div class="box-arrow ml-auto"></div>
-                            </div>
-                            <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="wrapper">
-                            <img src="/images/img3.jpg" alt="news-1" class="img-news">
-                            <div class="px-3 pb-4">
-                                <h3>Why Do You Need Two Doses for Some COVID-19 Vaccines?</h3>
-                                <strong class="text-muted">07/04/21</strong>
-                                <p class="text-muted mb-4">
-                                    Some COVID-19 vaccines require two doses because the second dose helps to better
-                                    reinforce the immune response. Learn more…
-                                </p>
-                                <div class="box-arrow ml-auto"></div>
-                            </div>
-                            <!--                        <a href="#" class="news-link" data-toggle="modal" data-target="#modal-news">Read More...</a>-->
-                        </div>
-                    </div>
+                    </template>
                 </div>
             </div>
         </div>
-        <div class="modal" id="modal-news">
+        <div class="modal" id="modal-news" ref="modal">
             <div class="content">
-                <div class="head">
-                    <h3 class="title">How to Protect Yourself From Covid-19</h3>
-                    <span class="close" data-dismiss='modal'>&times;</span>
-                </div>
-                <div class="body">
-                    <img src="/images/new-normal-1---bie4b73458c9a84d4995ebef27544a3a0a.png" alt="new-normal"
-                         class="mx-auto mb-3">
-                    <p>April 20, 2021</p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam, deleniti expedita facere
-                        hic in iusto laborum laudantium magni maxime molestiae nihil numquam obcaecati perspiciatis
-                        quisquam sint ullam vel voluptatum!
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolorem illo itaque rem
-                        rerum! Dolore dolorem dolores ducimus et, excepturi facilis harum impedit, mollitia obcaecati
-                        perspiciatis repellendus saepe voluptas voluptate.
-                    </p>
+                <div class="container">
+                    <div class="head">
+                        <h2 class="title display-4 m-0 mb-4">{{ modal.title }}</h2>
+                        <div class="close" @click="toggleModal">&times;</div>
+                    </div>
+                    <div class="body">
+                        <img :src="`/images/${modal.image}`" :alt="modal.image" class="mb-3">
+                        <div v-html="modal.body"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -321,6 +272,13 @@ export default {
     data() {
         return {
             user: false,
+            news: [],
+            modal: {
+                title: "",
+                image: "",
+                body: "",
+                updated_at: "",
+            },
         };
     },
     methods: {
@@ -341,6 +299,21 @@ export default {
         getVaccine() {
             this.$router.push("/account/vac-center");
         },
+        loadNews() {
+            this.$http.get("/api/latest")
+                .then(({data}) => this.news = data.news);
+        },
+        newsDate(date) {
+            date = date.substr(0, 10).split('-');
+            return `${date[2]}/${date[1]}/${date[0].substr(0, 2)}`
+        },
+        toggleModal(news = {}) {
+            const display = this.$refs.modal.style.display;
+            this.$refs.modal.style.display = display === "block" ? "none" : "block";
+
+            if (news)
+                this.modal = news;
+        },
     },
     mounted() {
         const script = document.createElement("script");
@@ -348,6 +321,7 @@ export default {
         document.querySelector(".home").appendChild(script);
 
         this.loadUser();
+        this.loadNews();
     },
 }
 </script>
