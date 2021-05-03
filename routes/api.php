@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\UserController;
@@ -90,5 +91,12 @@ Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
         Route::get('', [UserController::class, 'all']);
         Route::post('{id}', [UserController::class, 'update']);
         Route::delete('{id}', [UserController::class, 'delete']);
+    });
+
+    Route::prefix('news')->group(function () {
+        Route::get('', [NewsController::class, 'all']);
+        Route::post('', [NewsController::class, 'create']);
+        Route::post('{id}', [NewsController::class, 'update']);
+        Route::delete('{id}', [NewsController::class, 'delete']);
     });
 });

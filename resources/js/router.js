@@ -18,6 +18,7 @@ import Personal from "./components/auth/Personal";
 import Password from "./components/auth/Password";
 import Document from "./components/auth/Document";
 import UserVacCenter from "./components/auth/VacCenter";
+import News from "./components/admin/News";
 
 const router = new VueRouter({
     mode: "history",
@@ -36,6 +37,9 @@ const router = new VueRouter({
         children: [{
             path: "",
             component: Welcome,
+        }, {
+            path: "news",
+            component: News,
         }, {
             path: "vac-center",
             component: VacCenter,

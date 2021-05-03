@@ -1501,6 +1501,10 @@ form .btn {
     margin-right: -.25rem;
 }
 
+.form-admin input[type=file]::-webkit-file-upload-button {
+    display: none;
+}
+
 .form-admin input:focus, .form-admin textarea:focus, .form-admin select:focus {
     outline: none;
     background-color: rgba(0, 0, 0, .05);
