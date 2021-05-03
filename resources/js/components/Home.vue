@@ -261,7 +261,7 @@
                 </div>
             </div>
         </div>
-        <div id="vaccine" class="py-80 bg-blue text-center">
+        <div id="vaccine" class="py-80 bg-blue text-center" @click="getVaccine">
             <h2 class="display-1 text-uppercase my-0 text-white" id="get-your-vaccine">Get Your Vaccine</h2>
             <p class="font-weight-bold text-uppercase">Click Here</p>
         </div>
@@ -337,7 +337,10 @@ export default {
             localStorage.removeItem("token");
             localStorage.removeItem("role");
             localStorage.removeItem("user");
-        }
+        },
+        getVaccine() {
+            this.$router.push("/account/vac-center");
+        },
     },
     mounted() {
         const script = document.createElement("script");

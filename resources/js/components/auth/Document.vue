@@ -1,5 +1,5 @@
 <template>
-    <div><h4 class="mt-0 mb-4">Document</h4>
+    <div><h4 class="mt-0 mb-4">Download or print your vaccination document</h4>
         <form class="form">
             <div>
                 <button type="submit">Registration Proof</button>

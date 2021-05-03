@@ -2205,6 +2205,9 @@ __webpack_require__.r(__webpack_exports__);
       localStorage.removeItem("token");
       localStorage.removeItem("role");
       localStorage.removeItem("user");
+    },
+    getVaccine: function getVaccine() {
+      this.$router.push("/account/vac-center");
     }
   },
   mounted: function mounted() {
@@ -23488,15 +23491,36 @@ var render = function() {
     _vm._v(" "),
     _vm._m(9),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "py-80 bg-blue text-center",
+        attrs: { id: "vaccine" },
+        on: { click: _vm.getVaccine }
+      },
+      [
+        _c(
+          "h2",
+          {
+            staticClass: "display-1 text-uppercase my-0 text-white",
+            attrs: { id: "get-your-vaccine" }
+          },
+          [_vm._v("Get Your Vaccine")]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-weight-bold text-uppercase" }, [
+          _vm._v("Click Here")
+        ])
+      ]
+    ),
+    _vm._v(" "),
     _vm._m(10),
     _vm._v(" "),
     _vm._m(11),
     _vm._v(" "),
-    _vm._m(12),
-    _vm._v(" "),
     _c("div", { staticClass: "sidebar-backdrop" }),
     _vm._v(" "),
-    _vm._m(13)
+    _vm._m(12)
   ])
 }
 var staticRenderFns = [
@@ -23923,29 +23947,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "py-80 bg-blue text-center", attrs: { id: "vaccine" } },
-      [
-        _c(
-          "h2",
-          {
-            staticClass: "display-1 text-uppercase my-0 text-white",
-            attrs: { id: "get-your-vaccine" }
-          },
-          [_vm._v("Get Your Vaccine")]
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "font-weight-bold text-uppercase" }, [
-          _vm._v("Click Here")
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -26677,7 +26678,7 @@ var render = function() {
   return _c("div", { staticClass: "bg-light my-3 p-4 w-lg-90" }, [
     _c("div", { staticClass: "row no-gutters" }, [
       _c("div", { staticClass: "col-lg-3 settings" }, [
-        _c("h3", { staticClass: "mt-0 mb-4" }, [_vm._v("Account Settings")]),
+        _c("h3", { staticClass: "mt-0 mb-4" }, [_vm._v("My Account")]),
         _vm._v(" "),
         _c("ul", { staticClass: "account-menu" }, [
           _c(
@@ -26946,7 +26947,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h4", { staticClass: "mt-0 mb-4" }, [_vm._v("Document")]),
+      _c("h4", { staticClass: "mt-0 mb-4" }, [
+        _vm._v("Download or print your vaccination document")
+      ]),
       _vm._v(" "),
       _c("form", { staticClass: "form" }, [
         _c("div", [
@@ -27106,7 +27109,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h4", { staticClass: "mt-0 mb-4" }, [_vm._v("Change password")]),
+    _c("h4", { staticClass: "mt-0 mb-4" }, [_vm._v("Change your password")]),
     _vm._v(" "),
     _c(
       "form",
@@ -27262,7 +27265,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h4", { staticClass: "mt-0 mb-4" }, [_vm._v("Personal information")]),
+    _c("h4", { staticClass: "mt-0 mb-4" }, [
+      _vm._v("Update your personal information")
+    ]),
     _vm._v(" "),
     _c(
       "form",
@@ -27756,7 +27761,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h4", { staticClass: "mt-0 mb-4" }, [_vm._v("Vaccine center")]),
+    _c("h4", { staticClass: "mt-0 mb-4" }, [
+      _vm._v("Select your desired vaccine center")
+    ]),
     _vm._v(" "),
     _c(
       "form",

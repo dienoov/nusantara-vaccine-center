@@ -1,5 +1,5 @@
 <template>
-    <div><h4 class="mt-0 mb-4">Personal information</h4>
+    <div><h4 class="mt-0 mb-4">Update your personal information</h4>
         <form class="form" @submit.prevent="saveData">
             <div>
                 <label for="nik">NIK</label>

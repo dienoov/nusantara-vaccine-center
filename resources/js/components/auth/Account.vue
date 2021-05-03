@@ -2,7 +2,7 @@
     <div class="bg-light my-3 p-4 w-lg-90">
         <div class="row no-gutters">
             <div class="col-lg-3 settings">
-                <h3 class="mt-0 mb-4">Account Settings</h3>
+                <h3 class="mt-0 mb-4">My Account</h3>
                 <ul class="account-menu">
                     <li>
                         <router-link to="/account">

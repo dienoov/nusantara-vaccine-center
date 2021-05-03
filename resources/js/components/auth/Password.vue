@@ -1,5 +1,5 @@
 <template>
-    <div><h4 class="mt-0 mb-4">Change password</h4>
+    <div><h4 class="mt-0 mb-4">Change your password</h4>
         <form class="form" @submit.prevent="saveData">
             <div>
                 <label for="old_password">Old Password</label>

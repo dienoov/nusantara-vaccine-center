@@ -1,5 +1,5 @@
 <template>
-    <div><h4 class="mt-0 mb-4">Vaccine center</h4>
+    <div><h4 class="mt-0 mb-4">Select your desired vaccine center</h4>
         <form class="form" @submit.prevent="saveData">
             <div>
                 <label for="vac_center_id">Vaccine Center</label>
