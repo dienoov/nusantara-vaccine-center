@@ -25,7 +25,7 @@ class AuthController extends Controller
         $input['dob'] = Carbon::createFromFormat('Y-m-d', $request->dob)->toDateString();
 
         $user = User::create($input);
-        $token = $user->createToken('nvc')->accessToken;
+        $token = $user->createToken('nvc', ['user'])->accessToken;
 
         return response([
             'user' => $user,

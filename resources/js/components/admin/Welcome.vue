@@ -16,7 +16,7 @@ export default {
     },
     methods: {
         loadData() {
-            this.$http.get("/api/admin")
+            this.$http.get("/api/scope/admin")
                 .then(({data}) => this.user = data)
                 .catch(() => this.$router.push("/admin/login"));
         },

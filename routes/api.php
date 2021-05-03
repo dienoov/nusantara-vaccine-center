@@ -27,12 +27,12 @@ Route::prefix('auth')->group(function () {
     Route::post('admin', [AuthController::class, 'admin']);
 });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('scope/user', function (Request $request) {
     return $request->user();
 });
 
 Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
-    Route::get('admin', function (Request $request) {
+    Route::get('scope/admin', function (Request $request) {
         return $request->user();
     });
 

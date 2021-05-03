@@ -68,6 +68,7 @@ export default {
                 .then(({data}) => {
                     localStorage.setItem("token", `Bearer ${data.token}`);
                     localStorage.setItem("role", "user");
+                    localStorage.setItem("user", JSON.stringify(data.user));
                     this.$router.push("/");
                 })
                 .catch((err) => {

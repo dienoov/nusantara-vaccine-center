@@ -20,11 +20,22 @@
                 <li class="nav-item">
                     <a href="#vaccine" class="nav-link">Get Vaccine</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="!user">
                     <router-link to="/login" class="nav-link-btn">Login</router-link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="!user">
                     <router-link to="/register" class="nav-link-btn">Register</router-link>
+                </li>
+                <li class="nav-item nav-user" v-if="user">
+                    <a href="#" class="nav-link">{{ user.name }}</a>
+                    <ul class="dropdown">
+                        <li>
+                            <router-link to="/">My Account</router-link>
+                        </li>
+                        <li>
+                            <a href="#" @click="logout">Sign Out</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <button class="navbar-toggler">
@@ -101,21 +112,14 @@
                     <div class="col-lg-6">
                         <h2 class="display-4 my-0">About Us</h2>
                         <p class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio
-                            quam
-                            qui
-                            sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt
-                            voluptatem!
-                            Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam
-                            mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto asperiores
+                            assumenda cumque dolores earum laborum natus nemo nihil, omnis praesentium quibusdam quis
+                            tempora tenetur ullam unde, ut vitae voluptatem.
                         </p>
                         <p class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse
-                            est
-                            facere
-                            facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi
-                            exercitationem
-                            explicabo facere non?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque, expedita harum, maiores
+                            nobis non nostrum quasi, sed soluta sunt tempora voluptatem voluptatum? Aliquid doloribus
+                            est maiores officiis placeat voluptas?
                         </p>
                         <!--                        <button class="btn btn-light mt-3">Learn More...</button>-->
                         <div class="row no-gutters mt-4">
@@ -314,10 +318,33 @@
 <script>
 export default {
     name: "Home",
+    data() {
+        return {
+            user: false,
+        };
+    },
+    methods: {
+        loadUser() {
+            this.$http.get("/api/scope/user")
+                .then(({data}) => {
+                    localStorage.setItem("user", JSON.stringify(data));
+                    this.user = data;
+                })
+                .catch(this.logout);
+        },
+        logout() {
+            this.user = false;
+            localStorage.removeItem("token");
+            localStorage.removeItem("role");
+            localStorage.removeItem("user");
+        }
+    },
     mounted() {
         const script = document.createElement("script");
         script.src = "/js/website.js";
         document.querySelector(".home").appendChild(script);
+
+        this.loadUser();
     },
 }
 </script>

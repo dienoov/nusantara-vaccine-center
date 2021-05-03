@@ -2179,12 +2179,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
+  data: function data() {
+    return {
+      user: false
+    };
+  },
+  methods: {
+    loadUser: function loadUser() {
+      var _this = this;
+
+      this.$http.get("/api/scope/user").then(function (_ref) {
+        var data = _ref.data;
+        localStorage.setItem("user", JSON.stringify(data));
+        _this.user = data;
+      })["catch"](this.logout);
+    },
+    logout: function logout() {
+      this.user = false;
+      localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      localStorage.removeItem("user");
+    }
+  },
   mounted: function mounted() {
     var script = document.createElement("script");
     script.src = "/js/website.js";
     document.querySelector(".home").appendChild(script);
+    this.loadUser();
   }
 });
 
@@ -2306,6 +2333,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Dashboard",
   data: function data() {
@@ -2322,12 +2353,18 @@ __webpack_require__.r(__webpack_exports__);
     loadData: function loadData() {
       var _this = this;
 
-      this.$http.get("/api/admin").then(function (_ref) {
+      this.$http.get("/api/scope/admin").then(function (_ref) {
         var data = _ref.data;
         return _this.user = data;
       })["catch"](function () {
         return _this.$router.push("/admin/login");
       });
+    },
+    logout: function logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      localStorage.removeItem("user");
+      this.$router.push("/");
     }
   },
   mounted: function mounted() {
@@ -3487,7 +3524,7 @@ __webpack_require__.r(__webpack_exports__);
     loadData: function loadData() {
       var _this = this;
 
-      this.$http.get("/api/admin").then(function (_ref) {
+      this.$http.get("/api/scope/admin").then(function (_ref) {
         var data = _ref.data;
         return _this.user = data;
       })["catch"](function () {
@@ -3614,6 +3651,7 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         localStorage.setItem("token", "Bearer ".concat(data.token));
         localStorage.setItem("role", "user");
+        localStorage.setItem("user", JSON.stringify(data.user));
 
         _this.$router.push("/");
       })["catch"](function (err) {
@@ -3707,6 +3745,7 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         localStorage.setItem("token", "Bearer ".concat(data.token));
         localStorage.setItem("role", "user");
+        localStorage.setItem("user", JSON.stringify(data.user));
 
         _this.$router.push("/");
       })["catch"](function (err) {
@@ -3865,20 +3904,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_13__.default({
 });
 router.beforeEach(function (to, from, next) {
   var token = localStorage.getItem("token");
+  if (token) window.axios.defaults.headers.common["Authorization"] = token;
 
   if (to.matched.some(function (record) {
     return record.meta.requireAdmin;
   })) {
     if (!token) return next("/admin/login");
     if (localStorage.getItem("role") !== "admin") return next("/admin/login");
-    window.axios.defaults.headers.common["Authorization"] = token;
   }
 
   if (to.matched.some(function (record) {
     return record.meta.requireAuth;
   })) {
     if (!token) return next("/login");
-    window.axios.defaults.headers.common["Authorization"] = token;
   }
 
   return next();
@@ -22535,7 +22573,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-view", { key: _vm.$route.fullPath })
+  return _c("router-view")
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22591,31 +22629,63 @@ var render = function() {
           _vm._v(" "),
           _vm._m(3),
           _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "nav-item" },
-            [
-              _c(
-                "router-link",
-                { staticClass: "nav-link-btn", attrs: { to: "/login" } },
-                [_vm._v("Login")]
+          !_vm.user
+            ? _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "nav-link-btn", attrs: { to: "/login" } },
+                    [_vm._v("Login")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
+            : _vm._e(),
           _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "nav-item" },
-            [
-              _c(
-                "router-link",
-                { staticClass: "nav-link-btn", attrs: { to: "/register" } },
-                [_vm._v("Register")]
+          !_vm.user
+            ? _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "nav-link-btn", attrs: { to: "/register" } },
+                    [_vm._v("Register")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.user
+            ? _c("li", { staticClass: "nav-item nav-user" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v(_vm._s(_vm.user.name))
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "dropdown" }, [
+                  _c(
+                    "li",
+                    [
+                      _c("router-link", { attrs: { to: "/" } }, [
+                        _vm._v("My Account")
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c(
+                      "a",
+                      { attrs: { href: "#" }, on: { click: _vm.logout } },
+                      [_vm._v("Sign Out")]
+                    )
+                  ])
+                ])
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _vm._m(4)
@@ -22807,13 +22877,13 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticClass: "text-muted" }, [
               _vm._v(
-                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugiat id illum odio\n                        quam\n                        qui\n                        sapiente. Adipisci aspernatur deleniti dolorum fuga iure laudantium omnis sed sunt\n                        voluptatem!\n                        Cupiditate, quo. Adipisci animi at debitis esse ipsum iusto labore laboriosam laborum magnam\n                        mollitia natus nihil non pariatur qui quis, ratione sint ullam vel?\n                    "
+                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto asperiores\n                        assumenda cumque dolores earum laborum natus nemo nihil, omnis praesentium quibusdam quis\n                        tempora tenetur ullam unde, ut vitae voluptatem.\n                    "
               )
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "text-muted" }, [
               _vm._v(
-                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolore, doloremque esse\n                        est\n                        facere\n                        facilis, ipsum laboriosam minima quaerat sequi tempore voluptate! Error, esse excepturi\n                        exercitationem\n                        explicabo facere non?\n                    "
+                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque, expedita harum, maiores\n                        nobis non nostrum quasi, sed soluta sunt tempora voluptatem voluptatum? Aliquid doloribus\n                        est maiores officiis placeat voluptas?\n                    "
               )
             ]),
             _vm._v(" "),
@@ -23464,33 +23534,45 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-6 w-6",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor"
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.logout($event)
                   }
-                },
-                [
-                  _c("path", {
+                }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "h-6 w-6",
                     attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      "stroke-width": "2",
-                      d:
-                        "M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor"
                     }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("h4", [_vm._v("Logout")])
-            ])
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d:
+                          "M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h4", [_vm._v("Logout")])
+              ]
+            )
           ])
         ])
       ]

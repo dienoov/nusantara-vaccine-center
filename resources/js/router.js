@@ -65,17 +65,19 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     const token = localStorage.getItem("token");
+
+    if (token)
+        window.axios.defaults.headers.common["Authorization"] = token;
+
     if (to.matched.some((record) => record.meta.requireAdmin)) {
         if (!token)
             return next("/admin/login");
         if (localStorage.getItem("role") !== "admin")
             return next("/admin/login");
-        window.axios.defaults.headers.common["Authorization"] = token;
     }
     if (to.matched.some((record) => record.meta.requireAuth)) {
         if (!token)
             return next("/login");
-        window.axios.defaults.headers.common["Authorization"] = token;
     }
     return next();
 });
