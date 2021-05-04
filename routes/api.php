@@ -112,3 +112,20 @@ Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
         Route::delete('{id}', [StaffController::class, 'delete']);
     });
 });
+
+Route::middleware(['auth:staff-api', 'scope:staff'])->group(function () {
+    Route::get('scope/staff', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::prefix('vac-center/staff')->group(function () {
+        Route::prefix('user')->group(function () {
+            Route::get('', [UserController::class, 'byVacCenter']);
+            Route::post('{id}', [UserController::class, 'updateByVacCenter']);
+        });
+
+        Route::get('status', [VacStatusController::class, 'all']);
+
+        Route::get('vaccine', [VaccineController::class, 'all']);
+    });
+});

@@ -20,6 +20,10 @@ import Document from "./components/auth/Document";
 import UserVacCenter from "./components/auth/VacCenter";
 import News from "./components/admin/News";
 import Staff from "./components/admin/Staff";
+import StaffLogin from "./components/staff/Login";
+import StaffDashboard from "./components/staff/Dashboard";
+import StaffWelcome from "./components/staff/Welcome";
+import StaffUser from "./components/staff/User";
 
 const router = new VueRouter({
     mode: "history",
@@ -92,6 +96,22 @@ const router = new VueRouter({
                 component: UserVacCenter,
             }],
         }],
+    }, {
+        path: "/staff/login",
+        component: StaffLogin,
+    }, {
+        path: "/staff",
+        component: StaffDashboard,
+        meta: {
+            requireStaff: true,
+        },
+        children: [{
+            path: "",
+            component: StaffWelcome,
+        }, {
+            path: "user",
+            component: StaffUser,
+        }],
     }],
 });
 
@@ -107,10 +127,19 @@ router.beforeEach((to, from, next) => {
         if (localStorage.getItem("role") !== "admin")
             return next("/admin/login");
     }
+
     if (to.matched.some((record) => record.meta.requireAuth)) {
         if (!token)
             return next("/login");
     }
+
+    if (to.matched.some((record) => record.meta.requireStaff)) {
+        if (!token)
+            return next("/staff/login");
+        if (localStorage.getItem("role") !== "staff")
+            return next("/staff/login");
+    }
+
     return next();
 });
 

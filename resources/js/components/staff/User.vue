@@ -1,0 +1,151 @@
+<template>
+    <div>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h1 class="m-0">User</h1>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>NIK</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Vaccine Center</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="user in users">
+                    <td>{{ user.nik }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.contact }}</td>
+                    <td>{{ user.vac_center.name }}</td>
+                    <td>{{ user.user_vaccine.vac_status && user.user_vaccine.vac_status.status }}</td>
+                    <td>
+                        <button class="btn" @click="updateData(user)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" height="20"
+                                 fill="currentColor">
+                                <path
+                                    d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-admin" :class="{active: modalActive}">
+            <div class="title">
+                <h2 class="m-0">{{ action }} User</h2>
+                <button class="btn close" @click="toggleModal">&times;</button>
+            </div>
+            <div class="body">
+                <form class="form-admin" @submit.prevent="saveData">
+                    <div>
+                        <label for="nik">NIK</label>
+                        <input type="text" name="nik" id="nik" v-model="form.nik" placeholder="NIK" disabled>
+                    </div>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" v-model="form.name" placeholder="Name" disabled>
+                    </div>
+                    <div>
+                        <label for="contact">Contact</label>
+                        <input type="text" name="contact" id="contact" v-model="form.contact" placeholder="Contact"
+                               disabled>
+                    </div>
+                    <div>
+                        <label for="vaccine_id">Vaccine</label>
+                        <select name="vaccine_id" id="vaccine_id" v-model="form.vaccine_id" required>
+                            <option value="" disabled selected>Select vaccine</option>
+                            <option v-for="vaccine in vaccines" :value="vaccine.id">{{ vaccine.brand }}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vac_status_id">Status</label>
+                        <select name="vac_status_id" id="vac_status_id" v-model="form.vac_status_id" required>
+                            <option value="" disabled selected>Select status</option>
+                            <option v-for="status in statuses" :value="status.id">{{ status.status }}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-blue btn-rounded ml-auto d-block">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "User",
+    data() {
+        return {
+            form: {
+                id: 0,
+                nik: "",
+                name: "",
+                dob: "",
+                address: "",
+                contact: "",
+                vac_center_id: "",
+                vaccine_id: "",
+                vac_status_id: "",
+            },
+            users: [],
+            modalActive: false,
+            action: "",
+            vaccines: [],
+            statuses: [],
+        };
+    },
+    methods: {
+        loadData() {
+            this.$http.get("/api/vac-center/staff/user")
+                .then(({data}) => this.users = data.users);
+        },
+        toggleModal() {
+            this.modalActive = !this.modalActive;
+        },
+        updateData(user) {
+            this.action = "Edit";
+            this.form = {
+                id: user.id,
+                nik: user.nik,
+                name: user.name,
+                vaccine_id: user.user_vaccine.vaccine_id ?? "",
+                vac_status_id: user.user_vaccine.vac_status_id ?? "",
+            };
+            this.toggleModal();
+        },
+        saveData() {
+            const req = this.form.id === 0 ?
+                this.$http.post("/api/vac-center/staff/user", this.form) :
+                this.$http.post(`/api/vac-center/staff/user/${this.form.id}`, this.form);
+            req.then(() => {
+                this.loadData();
+                this.toggleModal();
+            });
+        },
+        loadVaccine() {
+            this.$http.get("/api/vac-center/staff/vaccine")
+                .then(({data}) => this.vaccines = data.vaccines);
+        },
+        loadStatus() {
+            this.$http.get("/api/vac-center/staff/status")
+                .then(({data}) => this.statuses = data.statuses);
+        },
+    },
+    mounted() {
+        this.loadData();
+        this.loadVaccine();
+        this.loadStatus();
+    },
+}
+</script>
+
+<style scoped>
+
+</style>

@@ -116,4 +116,41 @@ class UserController extends Controller
             'message' => 'Success',
         ]);
     }
+
+    public function byVacCenter(Request $request)
+    {
+        $user = User::with(['vac_center', 'user_vaccine.vac_status'])
+            ->where('vac_center_id', $request->user()->vac_center_id)
+            ->get();
+
+        return response([
+            'users' => $user,
+            'message' => 'Success',
+        ]);
+    }
+
+    public function updateByVacCenter(Request $request, int $id)
+    {
+        $request->validate([
+            'vaccine_id' => 'nullable|exists:vaccines,id',
+            'vac_status_id' => 'nullable|exists:vac_statuses,id',
+        ]);
+
+        $user = User::find($id);
+
+        if ($user->vac_center_id !== $request->user()->vac_center_id)
+            return response([
+                'message' => 'Unauthorized',
+            ], 401);
+
+        $input = $request->only(['vaccine_id', 'vac_status_id']);
+
+        $user_vaccine = UserVaccine::where('user_id', $id)->first();
+        $user_vaccine->update($input);
+
+        return response([
+            'user' => $user,
+            'message' => 'Success',
+        ]);
+    }
 }
