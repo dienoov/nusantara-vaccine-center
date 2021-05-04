@@ -2134,6 +2134,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
   data: function data() {
@@ -23885,12 +23886,16 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "body" }, [
               _c("img", {
-                staticClass: "mb-3",
+                staticClass: "d-block",
                 attrs: {
                   src: "/images/" + _vm.modal.image,
                   alt: _vm.modal.image
                 }
               }),
+              _vm._v(" "),
+              _c("small", { staticClass: "d-block mt-1 mb-4 text-muted" }, [
+                _vm._v(_vm._s(_vm.modal.title))
+              ]),
               _vm._v(" "),
               _c("div", { domProps: { innerHTML: _vm._s(_vm.modal.body) } })
             ])

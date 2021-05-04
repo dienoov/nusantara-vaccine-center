@@ -1144,7 +1144,7 @@ footer {
 
 .modal .content {
     background-color: var(--nvc-white);
-    padding: 1.25rem;
+    padding: 1rem;
     border-radius: .2rem;
     max-width: 800px;
     margin-left: auto;
@@ -1161,7 +1161,7 @@ footer {
 
 .modal .content img {
     width: 100%;
-    height: 25rem;
+    height: 22.5rem;
     -o-object-fit: cover;
        object-fit: cover;
 }

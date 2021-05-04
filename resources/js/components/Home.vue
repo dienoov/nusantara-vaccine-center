@@ -185,7 +185,8 @@
                         <div class="close" @click="toggleModal">&times;</div>
                     </div>
                     <div class="body">
-                        <img :src="`/images/${modal.image}`" :alt="modal.image" class="mb-3">
+                        <img :src="`/images/${modal.image}`" :alt="modal.image" class="d-block">
+                        <small class="d-block mt-1 mb-4 text-muted">{{ modal.title }}</small>
                         <div v-html="modal.body"></div>
                     </div>
                 </div>
