@@ -30,6 +30,7 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::get('latest', [NewsController::class, 'latest']);
+Route::get('recent', [ScheduleController::class, 'recent']);
 
 Route::middleware(['auth:api', 'scope:user'])->group(function () {
     Route::get('scope/user', function (Request $request) {

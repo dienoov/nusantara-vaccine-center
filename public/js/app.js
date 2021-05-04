@@ -2135,6 +2135,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
   data: function data() {
@@ -2146,7 +2149,8 @@ __webpack_require__.r(__webpack_exports__);
         image: "",
         body: "",
         updated_at: ""
-      }
+      },
+      schedules: []
     };
   },
   methods: {
@@ -2185,6 +2189,14 @@ __webpack_require__.r(__webpack_exports__);
       var display = this.$refs.modal.style.display;
       this.$refs.modal.style.display = display === "block" ? "none" : "block";
       if (news) this.modal = news;
+    },
+    loadSchedule: function loadSchedule() {
+      var _this3 = this;
+
+      this.$http.get("/api/recent").then(function (_ref3) {
+        var data = _ref3.data;
+        return _this3.schedules = data.schedules;
+      });
     }
   },
   mounted: function mounted() {
@@ -2193,6 +2205,7 @@ __webpack_require__.r(__webpack_exports__);
     document.querySelector(".home").appendChild(script);
     this.loadUser();
     this.loadNews();
+    this.loadSchedule();
   }
 });
 
@@ -3796,6 +3809,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -23708,21 +23726,6 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          !_vm.user
-            ? _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "nav-link-btn", attrs: { to: "/register" } },
-                    [_vm._v("Register")]
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
           _vm.user
             ? _c("li", { staticClass: "nav-item nav-user" }, [
                 _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
@@ -23787,22 +23790,30 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6 px-4" }, [
-                  _c("h3", [_vm._v(_vm._s(_vm.news[0].title))]),
-                  _vm._v(" "),
-                  _c("strong", { staticClass: "text-muted" }, [
-                    _vm._v(_vm._s(_vm.newsDate(_vm.news[0].updated_at)))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", {
-                    staticClass: "text-muted mb-4",
-                    domProps: {
-                      innerHTML: _vm._s(_vm.news[0].body.substr(0, 160) + "…")
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "box-arrow ml-auto" })
-                ])
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6 px-4 d-flex align-items-center" },
+                  [
+                    _c("div", [
+                      _c("h3", [_vm._v(_vm._s(_vm.news[0].title))]),
+                      _vm._v(" "),
+                      _c("strong", { staticClass: "text-muted" }, [
+                        _vm._v(_vm._s(_vm.newsDate(_vm.news[0].updated_at)))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", {
+                        staticClass: "text-muted mb-4",
+                        domProps: {
+                          innerHTML: _vm._s(
+                            _vm.news[0].body.substr(0, 160) + "…"
+                          )
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "box-arrow ml-auto" })
+                    ])
+                  ]
+                )
               ]
             )
           : _vm._e(),
@@ -23904,7 +23915,30 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _vm._m(7),
+    _c("div", { staticClass: "py-80", attrs: { id: "date" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row no-gutters" }, [
+          _vm._m(7),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-lg-6 dates my-4" },
+            _vm._l(_vm.schedules, function(schedule, index) {
+              return _c("div", { class: { active: index == 0 } }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(schedule.vac_center.name) +
+                    ", " +
+                    _vm._s(_vm.newsDate(schedule.date)) +
+                    "\n                    "
+                )
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -24084,15 +24118,17 @@ var staticRenderFns = [
             }),
             _vm._v(" "),
             _c("div", { staticClass: "box" }, [
-              _c("h3", [_vm._v("Covid Vaccine Center")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "box-arrow" })
+              _c("div", [
+                _c("h3", [_vm._v("Covid Vaccine Center")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "box-arrow" })
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -24157,38 +24193,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "py-80", attrs: { id: "date" } }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row no-gutters" }, [
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("h2", { staticClass: "display-4 my-0" }, [
-              _vm._v("Save the Date")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted mb-4" }, [
-              _vm._v(
-                "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda neque quae\n                        ratione suscipit. Amet animi architecto autem commodi, esse et id itaque iure molestias nisi\n                        numquam quis quod vel!\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn" }, [
-              _vm._v("Schedule "),
-              _c("span", { staticClass: "play" })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6 dates my-4" }, [
-            _c("div", [_vm._v("The Priory Center, 16/04/21")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("City Care Center, 18/04/21")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "active" }, [
-              _vm._v("Royal Hospital, 21/04/21")
-            ]),
-            _vm._v(" "),
-            _c("div", [_vm._v("Riverside Park Stadium, 27/04/21")])
-          ])
-        ])
+    return _c("div", { staticClass: "col-lg-6" }, [
+      _c("h2", { staticClass: "display-4 my-0" }, [_vm._v("Save the Date")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-muted mb-4" }, [
+        _vm._v(
+          "\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda neque quae\n                        ratione suscipit. Amet animi architecto autem commodi, esse et id itaque iure molestias nisi\n                        numquam quis quod vel!\n                    "
+        )
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn" }, [
+        _vm._v("Schedule "),
+        _c("span", { staticClass: "play" })
       ])
     ])
   },
@@ -24198,18 +24214,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("footer", { staticClass: "py-80" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-3 text-center text-lg-left" }, [
-          _c("img", {
-            staticClass: "footer-logo",
-            attrs: { src: "/svg/logo-black.svg", alt: "logo", height: "32" }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-muted mt-3 mb-0" }, [
-            _vm._v("© 2021 SMK Nusantara")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-muted my-0" }, [
-            _vm._v("All Rights Reserved")
+        _c("div", { staticClass: "col-lg-3 d-flex align-items-center" }, [
+          _c("div", { staticClass: "w-100 text-center text-lg-left" }, [
+            _c("img", {
+              staticClass: "footer-logo",
+              attrs: { src: "/svg/logo-black.svg", alt: "logo", height: "28" }
+            })
           ])
         ]),
         _vm._v(" "),
@@ -24251,37 +24261,55 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-3 text-center text-lg-right" }, [
-          _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
-            _c("img", {
-              attrs: {
-                src: "/svg/icons8-instagram.svg",
-                alt: "instagram",
-                height: "30"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
-            _c("img", {
-              attrs: {
-                src: "/svg/icons8-twitter.svg",
-                alt: "twitter",
-                height: "30"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "social-media-icon", attrs: { href: "#" } }, [
-            _c("img", {
-              attrs: {
-                src: "/svg/icons8-play-button.svg",
-                alt: "youtube",
-                height: "30"
-              }
-            })
+        _c("div", { staticClass: "col-lg-3 d-flex align-items-center" }, [
+          _c("div", { staticClass: "text-center text-lg-right w-100" }, [
+            _c(
+              "a",
+              { staticClass: "social-media-icon", attrs: { href: "#" } },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "/svg/icons8-instagram.svg",
+                    alt: "instagram",
+                    height: "30"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "social-media-icon", attrs: { href: "#" } },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "/svg/icons8-twitter.svg",
+                    alt: "twitter",
+                    height: "30"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "social-media-icon", attrs: { href: "#" } },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "/svg/icons8-play-button.svg",
+                    alt: "youtube",
+                    height: "30"
+                  }
+                })
+              ]
+            )
           ])
         ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-muted mt-5 mb-0 text-center" }, [
+        _vm._v("© 2021 SMK Nusantara. All Rights Reserved.")
       ])
     ])
   },
@@ -27486,7 +27514,17 @@ var render = function() {
                 ],
                 1
               )
-            : _vm._e()
+            : _c(
+                "div",
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "text-light-blue px-2", attrs: { to: "/" } },
+                    [_vm._v("\n                Back to Home\n            ")]
+                  )
+                ],
+                1
+              )
         ],
         1
       ),

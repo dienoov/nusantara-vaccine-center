@@ -339,7 +339,7 @@ p {
 .slide {
     display: none;
     position: relative;
-    height: 90vh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -354,7 +354,7 @@ p {
 .slide img {
     object-fit: cover;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     filter: brightness(.5);
 }
 
@@ -626,6 +626,8 @@ p {
     background-color: var(--nvc-light-blue);
     color: white;
     padding: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 #about .box h3 {
@@ -1209,6 +1211,10 @@ footer {
     .navbar-brand img {
         height: 20px;
     }
+}
+
+.w-100 {
+    width: 100%;
 }
 
 .w-lg-30 {

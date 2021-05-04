@@ -23,9 +23,6 @@
                 <li class="nav-item" v-if="!user">
                     <router-link to="/login" class="nav-link-btn">Login</router-link>
                 </li>
-                <li class="nav-item" v-if="!user">
-                    <router-link to="/register" class="nav-link-btn">Register</router-link>
-                </li>
                 <li class="nav-item nav-user" v-if="user">
                     <a href="#" class="nav-link">{{ user.name }}</a>
                     <ul class="dropdown">
@@ -104,9 +101,11 @@
                     <div class="col-lg-6">
                         <img src="/images/pexels-cottonbro-3952224.jpg" alt="img13" class="img-about">
                         <div class="box">
-                            <h3>Covid Vaccine Center</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <div class="box-arrow"></div>
+                            <div>
+                                <h3>Covid Vaccine Center</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <div class="box-arrow"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -153,11 +152,13 @@
                     <div class="col-lg-6">
                         <img :src="`/images/${news[0].image}`" :alt="news[0].image" class="img-news-big">
                     </div>
-                    <div class="col-lg-6 px-4">
-                        <h3>{{ news[0].title }}</h3>
-                        <strong class="text-muted">{{ newsDate(news[0].updated_at) }}</strong>
-                        <p class="text-muted mb-4" v-html="news[0].body.substr(0, 160) + '…'"></p>
-                        <div class="box-arrow ml-auto"></div>
+                    <div class="col-lg-6 px-4 d-flex align-items-center">
+                        <div>
+                            <h3>{{ news[0].title }}</h3>
+                            <strong class="text-muted">{{ newsDate(news[0].updated_at) }}</strong>
+                            <p class="text-muted mb-4" v-html="news[0].body.substr(0, 160) + '…'"></p>
+                            <div class="box-arrow ml-auto"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row no-gutters mt-4">
@@ -205,10 +206,9 @@
                         <button class="btn">Schedule <span class="play"></span></button>
                     </div>
                     <div class="col-lg-6 dates my-4">
-                        <div>The Priory Center, 16/04/21</div>
-                        <div>City Care Center, 18/04/21</div>
-                        <div class="active">Royal Hospital, 21/04/21</div>
-                        <div>Riverside Park Stadium, 27/04/21</div>
+                        <div v-for="(schedule, index) in schedules" :class="{active: index == 0}">
+                            {{ schedule.vac_center.name }}, {{ newsDate(schedule.date) }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -219,10 +219,10 @@
         </div>
         <footer class="py-80">
             <div class="row">
-                <div class="col-lg-3 text-center text-lg-left">
-                    <img src="/svg/logo-black.svg" class="footer-logo" alt="logo" height="32">
-                    <p class="text-muted mt-3 mb-0">&copy; 2021 SMK Nusantara</p>
-                    <p class="text-muted my-0">All Rights Reserved</p>
+                <div class="col-lg-3 d-flex align-items-center">
+                    <div class="w-100 text-center text-lg-left">
+                        <img src="/svg/logo-black.svg" class="footer-logo" alt="logo" height="28">
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <ul class="footer-nav">
@@ -243,18 +243,21 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 text-center text-lg-right">
-                    <a href="#" class="social-media-icon">
-                        <img src="/svg/icons8-instagram.svg" alt="instagram" height="30">
-                    </a>
-                    <a href="#" class="social-media-icon">
-                        <img src="/svg/icons8-twitter.svg" alt="twitter" height="30">
-                    </a>
-                    <a href="#" class="social-media-icon">
-                        <img src="/svg/icons8-play-button.svg" alt="youtube" height="30">
-                    </a>
+                <div class="col-lg-3 d-flex align-items-center">
+                    <div class="text-center text-lg-right w-100">
+                        <a href="#" class="social-media-icon">
+                            <img src="/svg/icons8-instagram.svg" alt="instagram" height="30">
+                        </a>
+                        <a href="#" class="social-media-icon">
+                            <img src="/svg/icons8-twitter.svg" alt="twitter" height="30">
+                        </a>
+                        <a href="#" class="social-media-icon">
+                            <img src="/svg/icons8-play-button.svg" alt="youtube" height="30">
+                        </a>
+                    </div>
                 </div>
             </div>
+            <p class="text-muted mt-5 mb-0 text-center">&copy; 2021 SMK Nusantara. All Rights Reserved.</p>
         </footer>
         <button class="btn btn-sidebar">
             <div class="arrow"></div>
@@ -280,6 +283,7 @@ export default {
                 body: "",
                 updated_at: "",
             },
+            schedules: [],
         };
     },
     methods: {
@@ -315,6 +319,10 @@ export default {
             if (news)
                 this.modal = news;
         },
+        loadSchedule() {
+            this.$http.get("/api/recent")
+                .then(({data}) => this.schedules = data.schedules);
+        }
     },
     mounted() {
         const script = document.createElement("script");
@@ -323,6 +331,7 @@ export default {
 
         this.loadUser();
         this.loadNews();
+        this.loadSchedule();
     },
 }
 </script>

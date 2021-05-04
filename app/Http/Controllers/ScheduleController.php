@@ -16,6 +16,14 @@ class ScheduleController extends Controller
         ]);
     }
 
+    public function recent()
+    {
+        return response([
+            'schedules' => Schedule::with('vac_center')->orderByDesc('date')->limit(4)->get(),
+            'message' => 'Success',
+        ]);
+    }
+
     public function create(Request $request)
     {
         $request->validate([

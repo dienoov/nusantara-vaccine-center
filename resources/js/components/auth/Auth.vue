@@ -16,6 +16,11 @@
                     Sign In
                 </router-link>
             </div>
+            <div v-else>
+                <router-link to="/" class="text-light-blue px-2">
+                    Back to Home
+                </router-link>
+            </div>
         </nav>
         <router-view></router-view>
     </div>
