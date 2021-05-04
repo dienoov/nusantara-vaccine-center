@@ -22,4 +22,9 @@ class Staff extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function vac_center()
+    {
+        return $this->belongsTo(VacCenter::class);
+    }
 }

@@ -10,7 +10,7 @@ class StaffController extends Controller
     public function all()
     {
         return response([
-            'staff' => Staff::all(),
+            'staff' => Staff::with('vac_center')->get(),
             'message' => 'Success',
         ]);
     }
@@ -20,7 +20,7 @@ class StaffController extends Controller
         $request->validate([
             'username' => 'required|string',
             'name' => 'required|string',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required|min:8',
             'vac_center_id' => 'required|exists:vac_centers,id',
         ]);
 

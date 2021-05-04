@@ -19,6 +19,7 @@ import Password from "./components/auth/Password";
 import Document from "./components/auth/Document";
 import UserVacCenter from "./components/auth/VacCenter";
 import News from "./components/admin/News";
+import Staff from "./components/admin/Staff";
 
 const router = new VueRouter({
     mode: "history",
@@ -58,6 +59,9 @@ const router = new VueRouter({
         }, {
             path: "user",
             component: User,
+        }, {
+            path: "staff",
+            component: Staff,
         }],
     }, {
         path: "/login",
