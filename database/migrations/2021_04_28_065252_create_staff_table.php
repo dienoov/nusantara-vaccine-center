@@ -18,6 +18,7 @@ class CreateStaffTable extends Migration
             $table->string('username')->unique();
             $table->string('name');
             $table->string('password');
+            $table->foreignId('vac_center_id')->constrained('vac_centers')->onDelete('cascade');
             $table->timestamps();
         });
     }

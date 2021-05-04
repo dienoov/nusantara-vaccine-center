@@ -242,9 +242,7 @@ export default {
 }
 
 .content {
-    margin-left: 8rem;
-    margin-top: 8rem;
-    margin-right: 1.5rem;
+    margin: 8rem 1.5rem 1.5rem 8rem;
     background-color: white;
     padding: 2rem;
     color: var(--nvc-black);

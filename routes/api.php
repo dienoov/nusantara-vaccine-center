@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacCenterController;
@@ -27,6 +28,7 @@ Route::prefix('auth')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('user', [AuthController::class, 'user']);
     Route::post('admin', [AuthController::class, 'admin']);
+    Route::post('staff', [AuthController::class, 'staff']);
 });
 
 Route::get('latest', [NewsController::class, 'latest']);
@@ -101,5 +103,12 @@ Route::middleware(['auth:admin-api', 'scope:admin'])->group(function () {
         Route::post('', [NewsController::class, 'create']);
         Route::post('{id}', [NewsController::class, 'update']);
         Route::delete('{id}', [NewsController::class, 'delete']);
+    });
+
+    Route::prefix('staff')->group(function () {
+        Route::get('', [StaffController::class, 'all']);
+        Route::post('', [StaffController::class, 'create']);
+        Route::post('{id}', [StaffController::class, 'update']);
+        Route::delete('{id}', [StaffController::class, 'delete']);
     });
 });

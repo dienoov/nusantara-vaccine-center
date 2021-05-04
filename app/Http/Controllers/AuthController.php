@@ -77,4 +77,26 @@ class AuthController extends Controller
             'message' => 'Success',
         ]);
     }
+
+    public function staff(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required|min:8',
+        ]);
+
+        if (!Auth::guard('staff-web')->attempt($request->only(['username', 'password'])))
+            return response([
+                'message' => 'Invalid username or password',
+            ], 401);
+
+        $user = Auth::guard('staff-web')->user();
+        $token = $user->createToken('nvc', ['staff'])->accessToken;
+
+        return response([
+            'user' => $user,
+            'token' => $token,
+            'message' => 'Success',
+        ]);
+    }
 }
